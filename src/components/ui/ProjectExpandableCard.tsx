@@ -192,6 +192,21 @@ export function ProjectExpandableCard({
                 FEATURED
               </div>
             )}
+
+            {/* Project Type Badge */}
+            {project.projectType && (
+              <div className={`absolute left-3 top-3 z-10 rounded-full backdrop-blur-sm px-3 py-1 font-mono text-[10px] tracking-wider border ${
+                project.projectType === 'Real Project'
+                  ? 'bg-emerald-500/20 border-emerald-400/30 text-emerald-300'
+                  : project.projectType === 'Dummy Project'
+                  ? 'bg-sky-500/20 border-sky-400/30 text-sky-300'
+                  : project.projectType === 'Research'
+                  ? 'bg-purple-500/20 border-purple-400/30 text-purple-300'
+                  : 'bg-teal-500/20 border-teal-400/30 text-teal-300'
+              }`}>
+                {project.projectType.toUpperCase()}
+              </div>
+            )}
           </motion.div>
         )}
 

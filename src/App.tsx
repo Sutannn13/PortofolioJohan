@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { Routes, Route, useNavigate, useLocation } from 'react-router-dom';
 import type { ContactMessage } from '@/types';
 import { supabase } from '@/lib/supabase';
 import Aurora from '@/components/reactbits/Aurora';
@@ -13,8 +14,10 @@ import Certificates from '@/components/sections/Certificates';
 import Contact from '@/components/sections/Contact';
 import Experience from '@/components/sections/Experience';
 import GitHubSection from '@/components/sections/GitHubSection';
+import LiveActivityBanner from '@/components/sections/LiveActivityBanner';
 import BlurText from '@/components/reactbits/BlurText';
 import CountUp from '@/components/reactbits/CountUp';
+import ActivityPage from '@/pages/ActivityPage';
 // ─────────────────────────────────────────────
 // Data import from the isolated `sosial` folder
 // ─────────────────────────────────────────────
@@ -59,8 +62,10 @@ const initialContactMessages: ContactMessage[] = [
   },
 ];
 
-function App() {
+// ── Homepage Component ────────────────────────────────────────────────────────
+function HomePage() {
   const { personal, projects, certificates, experiences, navigation } = portfolioData;
+  const navigate = useNavigate();
   const [showIntro, setShowIntro] = useState(true);
   const [introFading, setIntroFading] = useState(false);
 
@@ -113,11 +118,26 @@ function App() {
     };
   }, [showIntro]);
 
-  // Convert NavItem[] to PillNav format
-  const pillNavItems = navigation.map((item) => ({
-    label: item.label,
-    href: item.href,
-  }));
+  // Convert NavItem[] to PillNav format — add "Live Activity" link
+  const pillNavItems = [
+    ...navigation.map((item) => ({
+      label: item.label,
+      href: item.href,
+    })),
+    { label: 'Live Activity', href: '/activity' },
+  ];
+
+  // Handle PillNav clicks — route-based for /activity, anchor scroll for #sections
+  const handlePillNavNavigate = (href: string) => {
+    if (href.startsWith('/')) {
+      navigate(href);
+    } else {
+      const el = document.querySelector(href);
+      if (el) {
+        el.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+  };
 
   // Gabungkan pesan asli dengan pesan dummy jika pesan aslinya kurang dari 6
   // Sehingga Marquee akan selalu terlihat ramai.
@@ -213,6 +233,7 @@ function App() {
         pillColor="rgba(6, 0, 16, 0.6)"
         hoveredPillTextColor="#060010"
         pillTextColor="#f0f0f5"
+        onNavigate={handlePillNavNavigate}
       />
 
       {/* ── Main Content ── */}
@@ -225,12 +246,23 @@ function App() {
         <Skills />
         <Certificates certificates={certificates} />
         <GitHubSection />
+        <LiveActivityBanner />
         <Contact personal={personal} />
       </main>
 
       {/* ── Footer ── */}
       <Footer name={personal.name} />
     </>
+  );
+}
+
+// ── App Router ────────────────────────────────────────────────────────────────
+function App() {
+  return (
+    <Routes>
+      <Route path="/" element={<HomePage />} />
+      <Route path="/activity" element={<ActivityPage />} />
+    </Routes>
   );
 }
 

@@ -50,6 +50,8 @@ export interface Project {
     featured: boolean;
     category: string;
     award?: string;
+    projectType?: 'Real Project' | 'Dummy Project' | 'Research' | 'Organization Website';
+    status?: 'Live' | 'In Development' | 'Prototype' | 'Archived';
 }
 
 export interface Experience {

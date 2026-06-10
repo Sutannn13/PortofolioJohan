@@ -7,6 +7,8 @@ import type { PortfolioData } from '../src/types';
 
 import profileImage from './porto profil.jpeg';
 import hmtiImage from './hmti.png';
+import tokoListrikImage from './toko-listrik-arip.png';
+import skillPathAiImage from './skill-path-ai.png';
 
 const portfolioData: PortfolioData = {
     personal: {
@@ -145,6 +147,64 @@ const portfolioData: PortfolioData = {
             repoUrl: 'https://github.com/Sutannn13/HMTI-Margonda.git',
             featured: true,
             category: 'Organization Website',
+        },
+        {
+            id: 'p4',
+            title: 'Website Toko Listrik Arip',
+            description:
+                'Platform e-commerce untuk toko perlengkapan listrik dengan fitur katalog produk, cart, checkout, dashboard admin, dan pengelolaan transaksi.',
+            longDescription: `
+                <div class="space-y-4">
+                    <h4 class="text-xl font-semibold text-white">Latar Belakang</h4>
+                    <p>Toko perlengkapan listrik konvensional seringkali menghadapi kendala dalam pengelolaan stok, pencatatan transaksi, dan jangkauan pelanggan. <strong>Website Toko Listrik Arip</strong> dikembangkan sebagai solusi digital untuk modernisasi operasional toko, memungkinkan pelanggan menelusuri katalog produk dan melakukan pemesanan secara online.</p>
+                    <h4 class="text-xl font-semibold text-white mt-6">Arsitektur & Fitur Utama</h4>
+                    <p>Dibangun menggunakan <strong>Laravel</strong> dengan arsitektur MVC yang solid. Blade templating digunakan di sisi frontend untuk rendering tampilan yang dinamis dan responsif. Sistem ini mencakup seluruh alur e-commerce dari browsing produk hingga manajemen pesanan.</p>
+                    <ul class="list-disc pl-5 space-y-2 mt-2">
+                        <li><strong>Katalog Produk Digital:</strong> Menampilkan berbagai kategori perlengkapan listrik — kabel, saklar, lampu, MCB, dan komponen lainnya — dengan detail harga dan ketersediaan stok.</li>
+                        <li><strong>Keranjang Belanja & Checkout:</strong> Sistem cart yang persisten dengan alur checkout yang ramah pengguna dan mendukung pembayaran manual.</li>
+                        <li><strong>Dashboard Admin:</strong> Panel administrasi lengkap untuk mengelola produk, memantau pesanan masuk, dan mengatur status transaksi secara real-time.</li>
+                        <li><strong>Manajemen Transaksi:</strong> Pencatatan dan pelacakan seluruh transaksi dari pemesanan hingga penyelesaian pembayaran.</li>
+                    </ul>
+                    <h4 class="text-xl font-semibold text-white mt-6">Potensi Pengembangan</h4>
+                    <p>Project ini termasuk <strong>Real Project</strong> yang bisa dikembangkan lebih lanjut dengan integrasi payment gateway, tracking order, invoice otomatis, dan laporan penjualan untuk mendukung pertumbuhan bisnis toko listrik secara digital.</p>
+                </div>
+            `,
+            techStack: ['Laravel', 'PHP', 'Blade', 'JavaScript', 'CSS'],
+            imageUrl: tokoListrikImage,
+            repoUrl: 'https://github.com/Sutannn13/toko-listrik-arip',
+            featured: true,
+            category: 'E-Commerce',
+            projectType: 'Real Project',
+            status: 'In Development',
+        },
+        {
+            id: 'p5',
+            title: 'Skill Path AI',
+            description:
+                'Prototype platform AI untuk membuat roadmap belajar personal berdasarkan target karier, minat, dan level kemampuan pengguna.',
+            longDescription: `
+                <div class="space-y-4">
+                    <h4 class="text-xl font-semibold text-white">Tentang Project</h4>
+                    <p><strong>Skill Path AI</strong> adalah dummy project yang dirancang sebagai platform pembelajaran berbasis AI. Tujuannya membantu pengguna menentukan jalur belajar yang lebih terarah, mulai dari pemilihan skill, urutan materi, rekomendasi project latihan, hingga evaluasi progres.</p>
+                    <h4 class="text-xl font-semibold text-white mt-6">Fitur & Arsitektur</h4>
+                    <p>Dibangun menggunakan <strong>TypeScript</strong> sebagai bahasa utama dengan arsitektur modern yang memanfaatkan <strong>PostgreSQL</strong> untuk penyimpanan data relasional. Sistem ini dirancang untuk menghasilkan roadmap belajar yang dipersonalisasi sesuai kebutuhan setiap pengguna.</p>
+                    <ul class="list-disc pl-5 space-y-2 mt-2">
+                        <li><strong>Personalized Roadmap:</strong> Algoritma yang menyesuaikan jalur belajar berdasarkan target karier, level kemampuan saat ini, dan minat pengguna.</li>
+                        <li><strong>Skill Assessment:</strong> Evaluasi awal untuk menentukan starting point yang tepat dalam roadmap pembelajaran.</li>
+                        <li><strong>Project Recommendations:</strong> Rekomendasi project latihan yang relevan untuk setiap tahap pembelajaran.</li>
+                        <li><strong>Progress Tracking:</strong> Pemantauan progres belajar dengan visualisasi pencapaian dan milestone.</li>
+                    </ul>
+                    <h4 class="text-xl font-semibold text-white mt-6">Potensi Masa Depan</h4>
+                    <p>Walaupun masih prototype, project ini punya peluang menjadi <strong>real product</strong> karena relevan untuk mahasiswa, career switcher, dan orang yang ingin belajar teknologi secara terstruktur. Pengembangan lanjutan meliputi integrasi AI yang lebih canggih, community features, dan partnership dengan platform edtech.</p>
+                </div>
+            `,
+            techStack: ['TypeScript', 'JavaScript', 'PostgreSQL', 'CSS'],
+            imageUrl: skillPathAiImage,
+            repoUrl: 'https://github.com/Sutannn13/Skill-Path-AI',
+            featured: true,
+            category: 'AI Learning Platform',
+            projectType: 'Dummy Project',
+            status: 'Prototype',
         },
     ],
 
