@@ -332,3 +332,79 @@ body {
   }
 }
 
+/* ─────────────────────────────────────────────
+   Loading Screen — GitHub Bounce Animation
+   ───────────────────────────────────────────── */
+
+@keyframes slideX {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(7em); }
+}
+
+@keyframes bounceY {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-30px); }
+}
+
+@keyframes roll {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(1080deg); }
+}
+
+@keyframes username-reveal {
+  0% { opacity: 0; transform: translateY(10px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+.loading-github-slide {
+  /* 2s to go right, 2s to return left. Stops exactly at 4s on the left. */
+  animation: slideX 2s ease-in-out 2 alternate forwards;
+}
+
+.loading-github-bounce {
+  /* 0.5s up, 0.5s down = 1s per bounce. 8 iterations = exactly 4s total. */
+  animation: bounceY 0.5s cubic-bezier(0.33, 1, 0.68, 1) 8 alternate forwards;
+}
+
+.loading-github-roll {
+  animation: roll 2s linear 2 alternate forwards;
+}
+
+.loading-username-text {
+  animation: username-reveal 0.6s var(--ease-smooth) 0.3s both;
+}
+
+/* ── Elegant Shimmer Animations (Black & White) ── */
+@keyframes shimmerText {
+  0% {
+    background-position: 100% 50%;
+  }
+  50% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 100% 50%;
+  }
+}
+
+@keyframes shimmerColor {
+  0%, 100% {
+    color: #060010;
+  }
+  50% {
+    color: #ffffff;
+  }
+}
+
+.elegant-shimmer-text {
+  background: linear-gradient(90deg, #060010 20%, #ffffff 50%, #060010 80%);
+  background-size: 200% auto;
+  color: transparent !important;
+  -webkit-background-clip: text;
+  background-clip: text;
+  animation: shimmerText 5s ease infinite;
+}
+
+.elegant-shimmer-svg {
+  animation: shimmerColor 5s ease infinite;
+}
