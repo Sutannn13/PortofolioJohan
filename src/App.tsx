@@ -1,4 +1,6 @@
 import { useEffect, useState } from 'react';
+import type { ContactMessage } from '@/types';
+import { supabase } from '@/lib/supabase';
 import Aurora from '@/components/reactbits/Aurora';
 import PillNav from '@/components/reactbits/PillNav';
 import Footer from '@/components/layout/Footer';
@@ -8,7 +10,6 @@ import About from '@/components/sections/About';
 import Projects from '@/components/sections/Projects';
 import Skills from '@/components/sections/Skills';
 import Certificates from '@/components/sections/Certificates';
-import Blog from '@/components/sections/Blog';
 import Contact from '@/components/sections/Contact';
 import Experience from '@/components/sections/Experience';
 import GitHubSection from '@/components/sections/GitHubSection';
@@ -20,9 +21,44 @@ import BlurText from '@/components/reactbits/BlurText';
 import portfolioData from '../sosial/data';
 
 function App() {
-  const { personal, projects, certificates, experiences, navigation, blogPosts } = portfolioData;
+  const { personal, projects, certificates, experiences, navigation } = portfolioData;
   const [showIntro, setShowIntro] = useState(true);
   const [introFading, setIntroFading] = useState(false);
+
+  const [contactMessages, setContactMessages] = useState<ContactMessage[]>([]);
+
+  useEffect(() => {
+    // Fetch initial messages from Supabase
+    const fetchMessages = async () => {
+      const { data, error } = await supabase
+        .from('contact_messages')
+        .select('*')
+        .order('created_at', { ascending: false });
+
+      if (!error && data) {
+        setContactMessages(data);
+      }
+    };
+
+    fetchMessages();
+
+    // Subscribe to realtime inserts
+    const channel = supabase
+      .channel('custom-all-channel')
+      .on(
+        'postgres_changes',
+        { event: 'INSERT', schema: 'public', table: 'contact_messages' },
+        (payload) => {
+          const newMessage = payload.new as ContactMessage;
+          setContactMessages((prev) => [newMessage, ...prev]);
+        }
+      )
+      .subscribe();
+
+    return () => {
+      supabase.removeChannel(channel);
+    };
+  }, []);
 
   useEffect(() => {
     if (!showIntro) {
@@ -93,11 +129,10 @@ function App() {
         <Hero personal={personal} />
         <ProfileCardSection personal={personal} />
         <About personal={personal} />
-        <Experience experiences={experiences} />
+        <Experience experiences={experiences} messages={contactMessages} />
         <Projects projects={projects} />
         <Skills />
         <Certificates certificates={certificates} />
-        <Blog blogPosts={blogPosts} />
         <GitHubSection />
         <Contact personal={personal} />
       </main>

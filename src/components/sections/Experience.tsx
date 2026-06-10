@@ -3,12 +3,47 @@ import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { Briefcase, MapPin, Calendar, ChevronRight } from 'lucide-react';
 import SplitText from '@/components/reactbits/SplitText';
-import type { Experience as ExperienceType } from '@/types';
+import type { Experience as ExperienceType, ContactMessage } from '@/types';
+import { Marquee } from '@/components/ui/marquee';
+import { cn } from '@/lib/utils';
 
 gsap.registerPlugin(ScrollTrigger);
 
 interface ExperienceProps {
     experiences: ExperienceType[];
+    messages?: ContactMessage[];
+}
+
+const ReviewCard = ({
+    img,
+    name,
+    username,
+    body,
+}: {
+    img: string
+    name: string
+    username: string
+    body: string
+}) => {
+    return (
+        <figure
+            className={cn(
+                "relative h-full w-64 cursor-pointer overflow-hidden rounded-xl border p-4",
+                "border-white/10 bg-white/5 hover:bg-white/10"
+            )}
+        >
+            <div className="flex flex-row items-center gap-2">
+                <img className="rounded-full bg-white/20 object-cover" width="32" height="32" alt="" src={img} />
+                <div className="flex flex-col">
+                    <figcaption className="text-sm font-medium text-white">
+                        {name}
+                    </figcaption>
+                    <p className="text-xs font-medium text-white/40">{username}</p>
+                </div>
+            </div>
+            <blockquote className="mt-2 text-sm text-white/80 line-clamp-3">{body}</blockquote>
+        </figure>
+    )
 }
 
 const TimelineItem: React.FC<{ exp: ExperienceType; index: number; isLast: boolean }> = ({
@@ -117,12 +152,34 @@ const TimelineItem: React.FC<{ exp: ExperienceType; index: number; isLast: boole
     );
 };
 
-const Experience: React.FC<ExperienceProps> = ({ experiences }) => {
+const Experience: React.FC<ExperienceProps> = ({ experiences, messages = [] }) => {
+    const firstRow = messages.slice(0, Math.max(1, Math.ceil(messages.length / 2)));
+    const secondRow = messages.slice(Math.max(1, Math.ceil(messages.length / 2)));
+
     return (
         <section
             id="experience"
-            className="relative z-10 py-12 sm:py-section px-4 sm:px-6"
+            className="relative z-10 py-12 sm:py-section px-4 sm:px-6 overflow-hidden"
         >
+            {messages.length > 0 && (
+                <div className="relative flex w-full max-w-7xl mx-auto flex-col items-center justify-center overflow-hidden mb-16 sm:mb-24">
+                    <Marquee pauseOnHover className="[--duration:20s]">
+                        {firstRow.map((review, idx) => (
+                            <ReviewCard key={review.username + idx} {...review} />
+                        ))}
+                    </Marquee>
+                    {secondRow.length > 0 && (
+                        <Marquee reverse pauseOnHover className="[--duration:20s]">
+                            {secondRow.map((review, idx) => (
+                                <ReviewCard key={review.username + idx} {...review} />
+                            ))}
+                        </Marquee>
+                    )}
+                    <div className="pointer-events-none absolute inset-y-0 left-0 w-[15%] sm:w-1/4 bg-gradient-to-r from-[#060010] to-transparent"></div>
+                    <div className="pointer-events-none absolute inset-y-0 right-0 w-[15%] sm:w-1/4 bg-gradient-to-l from-[#060010] to-transparent"></div>
+                </div>
+            )}
+
             <div className="mx-auto max-w-3xl">
                 {/* Section Header */}
                 <div className="mb-10 sm:mb-16 text-center">

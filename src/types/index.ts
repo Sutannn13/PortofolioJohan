@@ -72,36 +72,6 @@ export interface Certificate {
     credentialUrl?: string;
 }
 
-export interface BlogSection {
-    id: string;
-    heading: string;
-    body: string;
-    bullets?: string[];
-}
-
-export type BlogReferenceProof = 'jurnal' | 'sinta' | 'standar' | 'laporan' | 'buku' | 'lainnya';
-
-export interface BlogReference {
-    text: string;
-    url?: string;
-    proof?: BlogReferenceProof;
-}
-
-export interface BlogPost {
-    id: string;
-    slug: string;
-    title: string;
-    subtitle: string;
-    date: string;
-    author: string;
-    course: string;
-    assignment: string;
-    coverIcon: string;
-    tags: string[];
-    tableOfContents: string[];
-    sections: BlogSection[];
-    references: Array<string | BlogReference>;
-}
 
 export interface NavItem {
     id: string;
@@ -116,6 +86,12 @@ export interface PortfolioData {
     projects: Project[];
     experiences: Experience[];
     certificates: Certificate[];
-    blogPosts: BlogPost[];
     navigation: NavItem[];
+}
+
+export interface ContactMessage {
+    name: string;
+    username: string;
+    body: string;
+    img: string;
 }

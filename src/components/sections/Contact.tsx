@@ -23,6 +23,7 @@ import {
     AlertDialogAction,
 } from '@/components/animate-ui/components/base/alert-dialog';
 import type { PersonalInfo } from '@/types';
+import { supabase } from '@/lib/supabase';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -119,6 +120,17 @@ const Contact: React.FC<ContactProps> = ({ personal }) => {
 
             if (response.ok) {
                 setSubmitted(true);
+                
+                const generatedUsername = `@${name.toLowerCase().replace(/\s+/g, '')}`;
+                const generatedImg = `https://avatar.vercel.sh/${encodeURIComponent(name)}`;
+                
+                await supabase.from('contact_messages').insert([{
+                    name: name,
+                    username: generatedUsername,
+                    body: message,
+                    img: generatedImg
+                }]);
+
                 form.reset();
                 launchSuccessConfetti();
                 setTimeout(() => setSubmitted(false), 3000);

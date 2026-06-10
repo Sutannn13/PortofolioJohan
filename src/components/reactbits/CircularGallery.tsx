@@ -302,8 +302,17 @@ class Media {
         img.crossOrigin = 'anonymous';
         img.src = this.image;
         img.onload = () => {
-            texture.image = img;
-            this.program.uniforms.uImageSizes.value = [img.naturalWidth, img.naturalHeight];
+            const canvas = document.createElement('canvas');
+            canvas.width = 512;
+            canvas.height = 512;
+            const ctx = canvas.getContext('2d');
+            if (ctx) {
+                ctx.drawImage(img, 0, 0, 512, 512);
+                texture.image = canvas;
+            } else {
+                texture.image = img;
+            }
+            this.program.uniforms.uImageSizes.value = [512, 512];
         };
     }
 
