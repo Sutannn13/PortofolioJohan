@@ -20,6 +20,45 @@ import BlurText from '@/components/reactbits/BlurText';
 // ─────────────────────────────────────────────
 import portfolioData from '../sosial/data';
 
+const initialContactMessages: ContactMessage[] = [
+  {
+    name: "Jack",
+    username: "@jack",
+    body: "I've never seen anything like this before. It's amazing. I love it.",
+    img: "https://avatar.vercel.sh/jack",
+  },
+  {
+    name: "Jill",
+    username: "@jill",
+    body: "I don't know what to say. I'm speechless. This is amazing.",
+    img: "https://avatar.vercel.sh/jill",
+  },
+  {
+    name: "John",
+    username: "@john",
+    body: "I'm at a loss for words. This is amazing. I love it.",
+    img: "https://avatar.vercel.sh/john",
+  },
+  {
+    name: "Jane",
+    username: "@jane",
+    body: "I'm at a loss for words. This is amazing. I love it.",
+    img: "https://avatar.vercel.sh/jane",
+  },
+  {
+    name: "Jenny",
+    username: "@jenny",
+    body: "I'm at a loss for words. This is amazing. I love it.",
+    img: "https://avatar.vercel.sh/jenny",
+  },
+  {
+    name: "James",
+    username: "@james",
+    body: "I'm at a loss for words. This is amazing. I love it.",
+    img: "https://avatar.vercel.sh/james",
+  },
+];
+
 function App() {
   const { personal, projects, certificates, experiences, navigation } = portfolioData;
   const [showIntro, setShowIntro] = useState(true);
@@ -80,6 +119,12 @@ function App() {
     href: item.href,
   }));
 
+  // Gabungkan pesan asli dengan pesan dummy jika pesan aslinya kurang dari 6
+  // Sehingga Marquee akan selalu terlihat ramai.
+  const displayMessages = contactMessages.length >= 6 
+    ? contactMessages 
+    : [...contactMessages, ...initialContactMessages].slice(0, Math.max(6, contactMessages.length));
+
   return (
     <>
       {/* ── Intro Loading Screen ── */}
@@ -129,7 +174,7 @@ function App() {
         <Hero personal={personal} />
         <ProfileCardSection personal={personal} />
         <About personal={personal} />
-        <Experience experiences={experiences} messages={contactMessages} />
+        <Experience experiences={experiences} messages={displayMessages} />
         <Projects projects={projects} />
         <Skills />
         <Certificates certificates={certificates} />
