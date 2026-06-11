@@ -104,7 +104,7 @@ const About: React.FC<AboutProps> = ({ personal }) => {
                         </ScrollReveal>
 
                         <div className="flex flex-wrap gap-3">
-                            {['React', 'TypeScript', 'Laravel', 'MikroTik', 'Cisco'].map(
+                            {['Laravel', 'PHP', 'MySQL', 'REST API', 'Git'].map(
                                 (tag) => (
                                     <span
                                         key={tag}

@@ -14,6 +14,7 @@ import React, { Children, cloneElement, useEffect, useMemo, useRef, useState } f
 export type DockItemData = {
     icon: React.ReactNode;
     label: React.ReactNode;
+    ariaLabel?: string;
     onClick: () => void;
     className?: string;
 };
@@ -38,6 +39,7 @@ type DockItemProps = {
     distance: number;
     baseItemSize: number;
     magnification: number;
+    ariaLabel?: string;
 };
 
 function DockItem({
@@ -48,7 +50,8 @@ function DockItem({
     spring,
     distance,
     magnification,
-    baseItemSize
+    baseItemSize,
+    ariaLabel
 }: DockItemProps) {
     const ref = useRef<HTMLDivElement>(null);
     const isHovered = useMotionValue(0);
@@ -79,6 +82,7 @@ function DockItem({
             className={`relative inline-flex items-center justify-center rounded-full bg-[#060010] border-neutral-700 border-2 shadow-md ${className}`}
             tabIndex={0}
             role="button"
+            aria-label={ariaLabel || (typeof children === 'string' ? children : undefined)}
             aria-haspopup="true"
         >
             {Children.map(children, child =>
@@ -179,6 +183,7 @@ export default function Dock({
                         distance={distance}
                         magnification={magnification}
                         baseItemSize={baseItemSize}
+                        ariaLabel={item.ariaLabel || (typeof item.label === 'string' ? item.label : undefined)}
                     >
                         <DockIcon>{item.icon}</DockIcon>
                         <DockLabel>{item.label}</DockLabel>

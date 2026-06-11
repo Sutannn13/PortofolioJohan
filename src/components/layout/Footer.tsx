@@ -22,7 +22,7 @@ const Footer: React.FC<FooterProps> = () => {
         {
             icon: <Linkedin size={18} />,
             label: 'LinkedIn',
-            onClick: () => window.open('https://www.linkedin.com/authwall?trk=bf&trkInfo=AQEBZ2wYPsRluQAAAZy7MwkQqLxSwDFvwrg-5s7Rg1w3BpR5eCenFcj_2kOO93gH5ioL4ewe3TgmAVICmPOz6dHSV_OAB-jw-ptrhTlZoiSj-9GFO549K0mJONNOCfBD5JR0WPk=&original_referer=&sessionRedirect=https%3A%2F%2Fwww.linkedin.com%2Fin%2Fsutan-arlie-38877635b', '_blank')
+            onClick: () => window.open('https://www.linkedin.com/in/sutan-arlie-38877635b', '_blank')
         },
         {
             icon: <Mail size={18} />,
@@ -49,7 +49,7 @@ const Footer: React.FC<FooterProps> = () => {
 
                 {/* Copyright */}
                 <p className="flex items-center gap-1.5 text-xs text-text-muted">
-                    © {year} Sutan Arlie Johan Portofolio
+                    © {year} Sutan Arlie Johan Portfolio
                 </p>
             </div>
         </footer>

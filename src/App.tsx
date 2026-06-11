@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Routes, Route, useNavigate, useLocation } from 'react-router-dom';
+import { Routes, Route, useNavigate, Link } from 'react-router-dom';
 import type { ContactMessage } from '@/types';
 import { supabase } from '@/lib/supabase';
 import Aurora from '@/components/reactbits/Aurora';
@@ -15,52 +15,13 @@ import Contact from '@/components/sections/Contact';
 import Experience from '@/components/sections/Experience';
 import GitHubSection from '@/components/sections/GitHubSection';
 import LiveActivityBanner from '@/components/sections/LiveActivityBanner';
-import BlurText from '@/components/reactbits/BlurText';
+
 import CountUp from '@/components/reactbits/CountUp';
 import ActivityPage from '@/pages/ActivityPage';
 // ─────────────────────────────────────────────
 // Data import from the isolated `sosial` folder
 // ─────────────────────────────────────────────
 import portfolioData from '../sosial/data';
-
-const initialContactMessages: ContactMessage[] = [
-  {
-    name: "Jack",
-    username: "@jack",
-    body: "I've never seen anything like this before. It's amazing. I love it.",
-    img: "https://avatar.vercel.sh/jack",
-  },
-  {
-    name: "Jill",
-    username: "@jill",
-    body: "I don't know what to say. I'm speechless. This is amazing.",
-    img: "https://avatar.vercel.sh/jill",
-  },
-  {
-    name: "John",
-    username: "@john",
-    body: "I'm at a loss for words. This is amazing. I love it.",
-    img: "https://avatar.vercel.sh/john",
-  },
-  {
-    name: "Jane",
-    username: "@jane",
-    body: "I'm at a loss for words. This is amazing. I love it.",
-    img: "https://avatar.vercel.sh/jane",
-  },
-  {
-    name: "Jenny",
-    username: "@jenny",
-    body: "I'm at a loss for words. This is amazing. I love it.",
-    img: "https://avatar.vercel.sh/jenny",
-  },
-  {
-    name: "James",
-    username: "@james",
-    body: "I'm at a loss for words. This is amazing. I love it.",
-    img: "https://avatar.vercel.sh/james",
-  },
-];
 
 // ── Homepage Component ────────────────────────────────────────────────────────
 function HomePage() {
@@ -139,14 +100,14 @@ function HomePage() {
     }
   };
 
-  // Gabungkan pesan asli dengan pesan dummy jika pesan aslinya kurang dari 6
-  // Sehingga Marquee akan selalu terlihat ramai.
-  const displayMessages = contactMessages.length >= 6 
-    ? contactMessages 
-    : [...contactMessages, ...initialContactMessages].slice(0, Math.max(6, contactMessages.length));
-
   return (
     <>
+      <a
+        href="#main-content"
+        className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[99999] focus:rounded-md focus:bg-accent focus:px-4 focus:py-2 focus:text-white"
+      >
+        Skip to main content
+      </a>
       {/* ── Intro Loading Screen ── */}
       {showIntro && (
         <div
@@ -237,11 +198,11 @@ function HomePage() {
       />
 
       {/* ── Main Content ── */}
-      <main className="relative z-10">
+      <main id="main-content" className="relative z-10">
         <Hero personal={personal} />
         <ProfileCardSection personal={personal} />
         <About personal={personal} />
-        <Experience experiences={experiences} messages={displayMessages} />
+        <Experience experiences={experiences} messages={contactMessages} />
         <Projects projects={projects} />
         <Skills />
         <Certificates certificates={certificates} />
@@ -256,14 +217,34 @@ function HomePage() {
   );
 }
 
+// ── 404 Not Found Page ────────────────────────────────────────────────────────
+function NotFound() {
+  return (
+    <div className="flex min-h-screen flex-col items-center justify-center bg-[#060010] px-4 text-center">
+      <h1 className="font-display text-7xl font-bold text-accent sm:text-9xl">404</h1>
+      <p className="mt-4 text-lg text-text-secondary">
+        Page not found. The page you are looking for does not exist.
+      </p>
+      <Link
+        to="/"
+        className="mt-8 inline-flex items-center gap-2 rounded-full bg-accent px-7 py-3 text-sm font-semibold text-white shadow-lg shadow-accent/20 transition-all duration-300 hover:bg-accent-dark hover:shadow-xl"
+      >
+        Back to Home
+      </Link>
+    </div>
+  );
+}
+
 // ── App Router ────────────────────────────────────────────────────────────────
 function App() {
   return (
     <Routes>
       <Route path="/" element={<HomePage />} />
       <Route path="/activity" element={<ActivityPage />} />
+      <Route path="*" element={<NotFound />} />
     </Routes>
   );
 }
 
 export default App;
+

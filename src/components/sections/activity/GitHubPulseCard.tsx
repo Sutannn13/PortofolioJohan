@@ -1,6 +1,6 @@
 import { BookOpen, Users, Star, GitFork, Clock, ExternalLink } from 'lucide-react';
 import type { GitHubUserProfile, GitHubRepoDetail } from '@/lib/githubService';
-import { timeAgo, GITHUB_USERNAME } from '@/lib/githubService';
+import { timeAgo } from '@/lib/githubService';
 
 interface GitHubPulseCardProps {
   user: GitHubUserProfile | null;

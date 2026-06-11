@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { Renderer, Program, Mesh, Color, Triangle } from 'ogl';
 
 const VERT = `#version 300 es
@@ -121,8 +121,10 @@ export default function Aurora(props: AuroraProps) {
     propsRef.current = props;
 
     const ctnDom = useRef<HTMLDivElement>(null);
+    const [webglFailed, setWebglFailed] = useState(false);
 
     useEffect(() => {
+        if (webglFailed) return;
         const ctn = ctnDom.current;
         if (!ctn) return;
 
@@ -133,8 +135,10 @@ export default function Aurora(props: AuroraProps) {
                 premultipliedAlpha: true,
                 antialias: true
             });
+            if (!renderer.gl) throw new Error("No WebGL context");
         } catch (error) {
-            console.error("WebGL context creation failed for Aurora:", error);
+            console.warn("WebGL context creation failed for Aurora. Falling back to CSS gradient.");
+            setWebglFailed(true);
             return;
         }
         
@@ -215,6 +219,15 @@ export default function Aurora(props: AuroraProps) {
             gl.getExtension('WEBGL_lose_context')?.loseContext();
         };
     }, [amplitude]);
+
+    if (webglFailed) {
+        return (
+            <div className="w-full h-full" style={{
+                background: `linear-gradient(135deg, ${colorStops[0] || '#5227FF'} 0%, ${colorStops[1] || '#7cff67'} 50%, ${colorStops[2] || '#5227FF'} 100%)`,
+                opacity: blend
+            }} />
+        );
+    }
 
     return <div ref={ctnDom} className="w-full h-full" />;
 }

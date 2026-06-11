@@ -14,7 +14,7 @@ const ProfileCardSection: React.FC<ProfileCardSectionProps> = ({ personal }) => 
             {/* Animated Background Text */}
             <div className="absolute inset-0 flex flex-col justify-center pointer-events-none opacity-[0.07] z-0">
                 <ScrollVelocity
-                    texts={[personal.name, 'Software Engineer', 'Back-End Engineer']}
+                    texts={[personal.name, 'Backend Developer', 'Laravel \u00b7 PHP \u00b7 MySQL']}
                     velocity={60}
                     className="text-white"
                 />

@@ -93,7 +93,8 @@ const Hero: React.FC<HeroProps> = ({ personal }) => {
                 </div>
 
                 {/* Headline with TextPressure */}
-                <div className="relative mb-4 w-full min-h-[60px] h-[80px] sm:h-[130px] md:h-[180px] lg:h-[220px] flex items-center justify-center">
+                <h1 className="relative mb-4 w-full min-h-[60px] h-[80px] sm:h-[130px] md:h-[180px] lg:h-[220px] flex items-center justify-center">
+                    <span className="sr-only">{personal.name} - {personal.title}</span>
                     <TextPressure
                         text="SUTAN A.J."
                         flex
@@ -106,7 +107,7 @@ const Hero: React.FC<HeroProps> = ({ personal }) => {
                         strokeColor="#8b5cf6"
                         minFontSize={24}
                     />
-                </div>
+                </h1>
 
                 {/* Tagline */}
                 <div ref={taglineRef} className="mb-6 w-full text-lg text-text-secondary sm:text-xl md:text-2xl opacity-0">

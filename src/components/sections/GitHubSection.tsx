@@ -312,6 +312,15 @@ const GitHubSection: React.FC = () => {
                   loading="lazy"
                   className="w-full h-auto object-contain rounded-lg"
                   style={{ minHeight: '120px' }}
+                  onError={(e) => {
+                    e.currentTarget.style.display = 'none';
+                    if (e.currentTarget.parentElement) {
+                      const p = document.createElement('p');
+                      p.className = 'text-text-muted text-sm';
+                      p.textContent = 'Streak stats unavailable';
+                      e.currentTarget.parentElement.appendChild(p);
+                    }
+                  }}
                 />
               </Card>
 
@@ -382,6 +391,13 @@ const GitHubSection: React.FC = () => {
                   src={`https://raw.githubusercontent.com/${GITHUB_USERNAME}/${GITHUB_USERNAME}/output/github-contribution-grid-snake-dark.svg`}
                   className="w-full h-auto"
                   loading="lazy"
+                  onError={(e) => {
+                    e.currentTarget.style.display = 'none';
+                    const parent = e.currentTarget.closest('.overflow-x-auto');
+                    if (parent) {
+                      parent.innerHTML = '<p class="text-text-muted text-sm p-4 text-center">Snake animation unavailable</p>';
+                    }
+                  }}
                 />
               </picture>
             </div>

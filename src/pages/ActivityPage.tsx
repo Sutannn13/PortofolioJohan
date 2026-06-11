@@ -6,7 +6,6 @@ import GitHubPulseCard from '@/components/sections/activity/GitHubPulseCard';
 import CurrentlyBuilding from '@/components/sections/activity/CurrentlyBuilding';
 import LatestActivity from '@/components/sections/activity/LatestActivity';
 import ActiveRepos from '@/components/sections/activity/ActiveRepos';
-import CodingStatsPlaceholder from '@/components/sections/activity/CodingStatsPlaceholder';
 import {
   fetchAllGitHubData,
   type GitHubActivityData,
@@ -44,7 +43,7 @@ const ActivityPage: React.FC = () => {
 
 
       {/* ── Main Content ── */}
-      <div className="relative z-10 min-h-screen bg-[#000]">
+      <div className="relative z-10 min-h-screen bg-[#000] activity-dot-bg">
         <ActivityHero />
         <GitHubPulseCard
           user={data.user}
@@ -65,7 +64,8 @@ const ActivityPage: React.FC = () => {
           repos={data.repos}
           loading={data.loading}
         />
-        <CodingStatsPlaceholder />
+        {/* CodingStatsPlaceholder hidden until WakaTime is implemented */}
+        {/* <CodingStatsPlaceholder /> */}
 
         {/* ── Error Banner ── */}
         {data.error && (

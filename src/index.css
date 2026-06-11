@@ -13,7 +13,7 @@
 
   --color-text-primary: #f0f0f5;
   --color-text-secondary: #9898a6;
-  --color-text-muted: #5a5a6e;
+  --color-text-muted: #8f8fb3;
 
   --color-accent: #8b5cf6;
   --color-accent-light: #a78bfa;
@@ -407,4 +407,10 @@ body {
 
 .elegant-shimmer-svg {
   animation: shimmerColor 5s ease infinite;
+}
+
+/* Activity Page Dot Background */
+.activity-dot-bg {
+  background-image: radial-gradient(#333 1px, transparent 1px);
+  background-size: 24px 24px;
 }
