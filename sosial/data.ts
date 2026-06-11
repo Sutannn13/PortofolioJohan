@@ -15,9 +15,9 @@ const portfolioData: PortfolioData = {
         name: 'Sutan Arlie Johan',
         firstName: 'Sutan Arlie',
         lastName: 'Johan',
-        title: 'Backend Developer Intern',
-        tagline: 'Backend Developer Intern specializing in Laravel, REST APIs, and database design.',
-        bio: `Information Technology student (semester 6) at UBSI Depok, currently interning as a Backend Engineer at Connextion Tech. I build REST APIs with Laravel, design relational databases with MySQL, and ship tested, documented code. My work includes a HKI-certified smart waste management app (Trash Point, Juara 2 UBSI Jabar) and multiple real-client e-commerce platforms. I also hold MTCNA and Cisco networking certifications, and I am a published academic contributor in JITK.`,
+        title: 'Full-Stack Engineer Intern',
+        tagline: 'Full-Stack Engineer Intern specializing in Frontend, REST APIs, and database design.',
+        bio: `Information Technology student (semester 6) at UBSI Depok, currently interning as a Full-Stack Engineer at Connextion Tech. I build REST APIs with Laravel, design relational databases with MySQL & Supabase, and ship tested, documented code. My work includes a HKI-certified smart waste management app (Trash Point, Juara 2 UBSI Jabar) and multiple real-client e-commerce platforms. I also hold MTCNA and Cisco networking certifications, and I am a published academic contributor in JITK.`,
         shortBio: 'Developer. Engineer. Creator.',
         email: 'sutanarliejohan@gmail.com',
         location: 'Bogor, Indonesia',
@@ -217,17 +217,18 @@ const portfolioData: PortfolioData = {
     experiences: [
         {
             id: 'e0',
-            role: 'Backend Engineer Intern',
-            company: 'Connextion',
+            role: 'Full-Stack Engineer Intern',
+            company: 'Connextion & Let\'s AFK',
             location: 'Indonesia (Remote)',
             startDate: 'Mar 2026',
             endDate: 'Present',
             description:
-                'Currently working as a Backend Engineer Intern at Connextion (connextion.tech), helping aspiring founders build market-ready products by developing scalable backend architectures and API integrations.',
+                'Currently entrusted by the founder to pivot and lead the end-to-end development of an internal participant database management system for Let\'s AFK (by Connextion), a rapidly growing offline community in Jakarta.',
             highlights: [
-                'Set up and configured Firebase and Google Authentication for secure user access.',
-                "Designed and implemented the database schema for the platform's questionnaire responses.",
-                'Developed and integrated REST APIs connecting the frontend questionnaire forms with the backend system.',
+                'End-to-End Development: Built a unified internal web dashboard from scratch handling both Frontend interfaces and Backend logic to manage community events, participants, and registrations.',
+                'Database Architecture: Designed and implemented a robust relational database schema using Supabase (PostgreSQL) to centralize scattered data from dozens of Google Sheets.',
+                'Data Migration & Structuring: Migrated and cleaned historical event data, ensuring accurate deduplication of participants via unique identifiers.',
+                'System Design: Developed dynamic JSON-based schemas to flexibly store event-specific questionnaire answers without cluttering the main database tables.',
             ],
         },
         {
@@ -235,8 +236,8 @@ const portfolioData: PortfolioData = {
             role: 'Peneliti & Pengembang Aplikasi',
             company: 'Universitas Bina Sarana Informatika, Project Base',
             location: 'Depok, Indonesia',
-            startDate: 'Sept 2025',
-            endDate: 'Jan 2026',
+            startDate: 'Aug 2025',
+            endDate: 'Sept 2025',
             description:
                 'Co-developed a gamified mobile application for educating early childhood about preventing child sexual abuse (CSA). Contributed to academic publication on UX evaluation and facilitated community-based Digital Marketing training.',
             highlights: [
@@ -252,8 +253,8 @@ const portfolioData: PortfolioData = {
             role: 'Project Manager & Lead Developer',
             company: 'IT Bootcamp — Universitas Bina Sarana Informatika',
             location: 'Depok, Indonesia',
-            startDate: '2024',
-            endDate: '2025',
+            startDate: 'Jul 2025',
+            endDate: 'Aug 2025',
             description:
                 'Led a 9-person team in a fullstack web development bootcamp, building "Trash Point" — a web-based education and waste management app.',
             highlights: [
