@@ -20,19 +20,19 @@ function getLastCommitForRepo(repoFullName: string, events: GitHubEvent[]): stri
 
 function getRepoStatus(pushedAt: string): { label: string; color: string } {
   const hours = (Date.now() - new Date(pushedAt).getTime()) / (1000 * 60 * 60);
-  if (hours < 24) return { label: 'Active', color: 'bg-emerald-400/20 text-emerald-300 border-emerald-400/30' };
-  if (hours < 72) return { label: 'Recently Updated', color: 'bg-amber-400/20 text-amber-300 border-amber-400/30' };
-  return { label: 'In Progress', color: 'bg-sky-400/20 text-sky-300 border-sky-400/30' };
+  if (hours < 24) return { label: 'Active', color: 'bg-white text-black border-transparent' };
+  if (hours < 72) return { label: 'Recently Updated', color: 'bg-[#1a1a1a] text-[#888888] border-[#333333]' };
+  return { label: 'In Progress', color: 'bg-[#1a1a1a] text-[#888888] border-[#333333]' };
 }
 
 const SkeletonCards: React.FC = () => (
   <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
     {[...Array(3)].map((_, i) => (
-      <div key={i} className="rounded-2xl border border-white/10 bg-white/[0.04] p-6 animate-pulse">
-        <div className="h-5 w-3/4 rounded bg-white/10 mb-3" />
-        <div className="h-3 w-full rounded bg-white/5 mb-2" />
-        <div className="h-3 w-2/3 rounded bg-white/5 mb-6" />
-        <div className="h-8 w-24 rounded-full bg-white/5" />
+      <div key={i} className="rounded-md border border-[#333333] bg-[#0a0a0a] p-6 animate-pulse">
+        <div className="h-5 w-3/4 rounded bg-[#1a1a1a] mb-3" />
+        <div className="h-3 w-full rounded bg-[#1a1a1a] mb-2" />
+        <div className="h-3 w-2/3 rounded bg-[#1a1a1a] mb-6" />
+        <div className="h-8 w-24 rounded-full bg-[#1a1a1a]" />
       </div>
     ))}
   </div>
@@ -44,8 +44,8 @@ const CurrentlyBuilding: React.FC<CurrentlyBuildingProps> = ({ repos, events, lo
       <section className="relative z-10 px-4 sm:px-6 mb-12 sm:mb-16">
         <div className="mx-auto max-w-4xl">
           <div className="flex items-center gap-3 mb-6">
-            <div className="w-2 h-2 rounded-full bg-accent animate-pulse" />
-            <h2 className="font-display text-lg font-semibold text-text-primary">Currently Building</h2>
+            <div className="w-2 h-2 bg-white" />
+            <h2 className="font-display text-lg font-semibold text-white">Currently Building</h2>
           </div>
           <SkeletonCards />
         </div>
@@ -60,11 +60,11 @@ const CurrentlyBuilding: React.FC<CurrentlyBuildingProps> = ({ repos, events, lo
       <section className="relative z-10 px-4 sm:px-6 mb-12 sm:mb-16">
         <div className="mx-auto max-w-4xl">
           <div className="flex items-center gap-3 mb-6">
-            <div className="w-2 h-2 rounded-full bg-accent animate-pulse" />
-            <h2 className="font-display text-lg font-semibold text-text-primary">Currently Building</h2>
+            <div className="w-2 h-2 bg-white" />
+            <h2 className="font-display text-lg font-semibold text-white">Currently Building</h2>
           </div>
-          <div className="rounded-2xl border border-white/10 bg-white/[0.04] backdrop-blur-xl p-8 text-center">
-            <p className="text-text-muted">No active repositories found</p>
+          <div className="rounded-md border border-[#333333] bg-[#0a0a0a] p-8 text-center">
+            <p className="text-[#888888]">No active repositories found</p>
           </div>
         </div>
       </section>
@@ -75,8 +75,8 @@ const CurrentlyBuilding: React.FC<CurrentlyBuildingProps> = ({ repos, events, lo
     <section className="relative z-10 px-4 sm:px-6 mb-12 sm:mb-16">
       <div className="mx-auto max-w-4xl">
         <div className="flex items-center gap-3 mb-6">
-          <div className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-          <h2 className="font-display text-lg font-semibold text-text-primary">
+          <div className="w-2 h-2 bg-white" />
+          <h2 className="font-display text-lg font-semibold text-white">
             Currently Building
           </h2>
         </div>
@@ -91,7 +91,7 @@ const CurrentlyBuilding: React.FC<CurrentlyBuildingProps> = ({ repos, events, lo
             return (
               <div
                 key={repo.id}
-                className="group rounded-2xl border border-white/10 bg-white/[0.04] backdrop-blur-xl p-6 transition-all duration-300 hover:border-accent/20 hover:bg-accent/5 hover:scale-[1.01]"
+                className="group rounded-md border border-[#333333] bg-[#0a0a0a] p-6 transition-colors hover:border-[#666666]"
               >
                 {/* Top: Name + Status */}
                 <div className="flex items-start justify-between gap-2 mb-3">
@@ -99,7 +99,7 @@ const CurrentlyBuilding: React.FC<CurrentlyBuildingProps> = ({ repos, events, lo
                     href={repo.html_url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="font-display font-semibold text-text-primary hover:text-accent transition-colors inline-flex items-center gap-1.5 text-sm"
+                    className="font-display font-semibold text-white hover:text-[#0070f3] transition-colors inline-flex items-center gap-1.5 text-sm"
                   >
                     {repo.name}
                     <ExternalLink size={12} className="opacity-0 group-hover:opacity-100 transition-opacity" />
@@ -111,16 +111,16 @@ const CurrentlyBuilding: React.FC<CurrentlyBuildingProps> = ({ repos, events, lo
 
                 {/* Description */}
                 {repo.description && (
-                  <p className="text-xs text-text-secondary line-clamp-2 mb-4">
+                  <p className="text-xs text-[#a1a1a1] line-clamp-2 mb-4">
                     {repo.description}
                   </p>
                 )}
 
                 {/* Last Commit */}
                 {lastCommit && (
-                  <div className="flex items-start gap-2 mb-4 rounded-lg bg-white/[0.03] border border-white/5 p-3">
-                    <GitCommit size={13} className="text-accent/60 mt-0.5 shrink-0" />
-                    <span className="text-xs text-text-muted line-clamp-2 italic">
+                  <div className="flex items-start gap-2 mb-4 rounded-md bg-[#000000] border border-[#333333] p-3">
+                    <GitCommit size={13} className="text-[#888888] mt-0.5 shrink-0" />
+                    <span className="text-xs text-[#888888] line-clamp-2 font-mono">
                       "{lastCommit}"
                     </span>
                   </div>
@@ -134,10 +134,10 @@ const CurrentlyBuilding: React.FC<CurrentlyBuildingProps> = ({ repos, events, lo
                         className="w-2.5 h-2.5 rounded-full"
                         style={{ backgroundColor: langColor }}
                       />
-                      <span className="text-xs text-text-muted">{repo.language}</span>
+                      <span className="text-xs text-[#888888] font-mono">{repo.language}</span>
                     </div>
                   )}
-                  <span className="text-[11px] text-text-muted">
+                  <span className="text-[11px] text-[#888888] font-mono">
                     {timeAgo(repo.pushed_at)}
                   </span>
                 </div>

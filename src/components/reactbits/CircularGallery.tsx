@@ -456,6 +456,7 @@ class App {
         this.scroll = { ease: scrollEase, current: 0, target: 0, last: 0 };
         this.onCheckDebounce = debounce(this.onCheck.bind(this), 200);
         this.createRenderer();
+        if (!this.gl) return;
         this.createCamera();
         this.createScene();
         this.onResize();
@@ -466,14 +467,18 @@ class App {
     }
 
     createRenderer() {
-        this.renderer = new Renderer({
-            alpha: true,
-            antialias: true,
-            dpr: Math.min(window.devicePixelRatio || 1, 2)
-        });
-        this.gl = this.renderer.gl;
-        this.gl.clearColor(0, 0, 0, 0);
-        this.container.appendChild(this.renderer.gl.canvas as HTMLCanvasElement);
+        try {
+            this.renderer = new Renderer({
+                alpha: true,
+                antialias: true,
+                dpr: Math.min(window.devicePixelRatio || 1, 2)
+            });
+            this.gl = this.renderer.gl;
+            this.gl.clearColor(0, 0, 0, 0);
+            this.container.appendChild(this.renderer.gl.canvas as HTMLCanvasElement);
+        } catch (error) {
+            console.error("WebGL context creation failed for CircularGallery:", error);
+        }
     }
 
     createCamera() {
@@ -662,8 +667,11 @@ class App {
         window.removeEventListener('touchstart', this.boundOnTouchDown);
         window.removeEventListener('touchmove', this.boundOnTouchMove);
         window.removeEventListener('touchend', this.boundOnTouchUp);
-        if (this.renderer && this.renderer.gl && this.renderer.gl.canvas.parentNode) {
-            this.renderer.gl.canvas.parentNode.removeChild(this.renderer.gl.canvas as HTMLCanvasElement);
+        if (this.renderer && this.renderer.gl) {
+            if (this.renderer.gl.canvas.parentNode) {
+                this.renderer.gl.canvas.parentNode.removeChild(this.renderer.gl.canvas as HTMLCanvasElement);
+            }
+            this.renderer.gl.getExtension('WEBGL_lose_context')?.loseContext();
         }
     }
 }

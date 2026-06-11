@@ -95,6 +95,18 @@ const CertificatesPage: React.FC<CertificatesPageProps> = ({ certificates, onClo
                 <p><strong>Registered Work:</strong> Aplikasi Edukasi Dan Pengelolaan Sampah Berbasis Web (Trash Point). Reg: <strong>000946578</strong>.</p>
             </div>
         ),
+        c5: (
+            <div className="space-y-2">
+                <p>Sertifikat penghargaan atas partisipasi dan kompetensi dalam <strong>Program Pelatihan IT & Pengembangan Web</strong>.</p>
+                <p><strong>Fokus Pembelajaran:</strong> Modern Web Development, Problem Solving, dan Best Practices pengembangan perangkat lunak.</p>
+            </div>
+        ),
+        c6: (
+            <div className="space-y-2">
+                <p>Sertifikat kehadiran dan partisipasi aktif dalam <strong>Seminar & Workshop Teknologi Informasi</strong>.</p>
+                <p><strong>Topik:</strong> Inovasi teknologi terkini, pengembangan karir di bidang IT, dan wawasan industri digital.</p>
+            </div>
+        ),
     };
 
     useEffect(() => {

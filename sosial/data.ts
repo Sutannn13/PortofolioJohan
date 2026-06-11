@@ -7,8 +7,8 @@ import type { PortfolioData } from '../src/types';
 
 import profileImage from './porto profil.jpeg';
 import hmtiImage from './hmti.png';
-import tokoListrikImage from './toko-listrik-arip.png';
-import skillPathAiImage from './skill-path-ai.png';
+import tokoListrikImage from './Toko listrik arip.jpeg';
+import skillPathAiImage from './Skill Path AI.jpeg';
 
 const portfolioData: PortfolioData = {
     personal: {
@@ -17,7 +17,7 @@ const portfolioData: PortfolioData = {
         lastName: 'Johan',
         title: 'Software & Back-End Engineer',
         tagline: 'Crafting elegant digital experiences with precision and purpose.',
-        bio: `I am a proactive Information Technology student and researcher at Universitas Bina Sarana Informatika (UBSI), Depok. My work spans software engineering, academic research, and community empowerment. As a researcher and app developer, I co-developed SALI (Sadar dan Lindungi) — a gamified mobile application designed to educate and prevent child sexual abuse (CSA) for early childhood. I am a published academic contributor, with work featured in Jurnal Ilmu Pengetahuan dan Teknologi Komputer (JITK) on user experience evaluation of educational applications. I actively engage in community service, including facilitating community-based Digital Marketing training to help individuals create compelling visual content. I am also a registered inventor and copyright holder under Indonesia's Directorate General of Intellectual Property (HKI) for technological innovations — including co-leading "Trash Point," a smart waste management app that earned 2nd place at the UBSI Jawa Barat IT Bootcamp. I bridge technical engineering with real-world impact, with expertise in modern web frameworks (React, Laravel, TypeScript) and networking (MikroTik MTCNA, Cisco).`,
+        bio: `I am a proactive Information Technology student and researcher at Universitas Bina Sarana Informatika (UBSI), Depok. My work spans software engineering, academic research, and community empowerment. As a researcher and app developer, I co-developed SALI (Sadar dan Lindungi) — a gamified mobile application designed to educate and prevent child sexual abuse (CSA) for early childhood. I am a published academic contributor, with work featured in Jurnal Ilmu Pengetahuan dan Teknologi Komputer (JITK) on user experience evaluation of educational applications. I actively engage in community service, including facilitating community-based Digital Marketing training to help individuals create compelling visual content. I am also a registered inventor and copyright holder under Indonesia's Directorate General of Intellectual Property (HKI) for technological innovations — including co-leading "Trash Point," a smart waste management app that earned 2nd place at the UBSI Jawa Barat IT Bootcamp. I bridge technical engineering with real-world impact, with expertise in modern web frameworks (React, Laravel, TypeScript) and networking (MikroTik MTCNA, Cisco). Furthermore, I leverage AI-assisted development, prompt engineering, and AI agent orchestration to accelerate development workflows and architect scalable solutions.`,
         shortBio: 'Developer. Engineer. Creator.',
         email: 'sutanarliejohan@gmail.com',
         location: 'Bogor, Indonesia',
@@ -67,6 +67,9 @@ const portfolioData: PortfolioData = {
         { id: 's12', name: 'Git', category: 'tools', proficiency: 85 },
         { id: 's13', name: 'Figma', category: 'tools', proficiency: 70 },
         { id: 's14', name: 'Linux', category: 'tools', proficiency: 75 },
+        { id: 's15', name: 'Prompt Engineering', category: 'ai', proficiency: 85 },
+        { id: 's16', name: 'AI Agents', category: 'ai', proficiency: 80 },
+        { id: 's17', name: 'AI-Assisted Dev', category: 'ai', proficiency: 90 },
     ],
 
     projects: [
@@ -257,21 +260,7 @@ const portfolioData: PortfolioData = {
                 'Built with Laravel, MySQL, Tailwind CSS, and JavaScript',
             ],
         },
-        {
-            id: 'e3',
-            role: 'Full-Stack Developer',
-            company: 'Universitas Bina Sarana Informatika (University Project)',
-            location: 'Depok, Indonesia',
-            startDate: '2023',
-            endDate: '2024',
-            description:
-                'Collaborated with a university lecturer to build an E-Commerce Platform for Fresh Fish Transactions from the ground up.',
-            highlights: [
-                'Developed a specialized e-commerce system including product management, shopping cart, and checkout flow',
-                'Integrated a payment gateway and implemented an admin dashboard for real-time sales monitoring',
-                'Utilized Laravel, PHP, MySQL, and Tailwind CSS to ensure a robust and responsive user experience',
-            ],
-        },
+
     ],
 
     certificates: [
@@ -302,6 +291,20 @@ const portfolioData: PortfolioData = {
             issuer: 'HKI Indonesia',
             date: '2025',
             imageUrl: '/sosial/HKI.jpeg',
+        },
+        {
+            id: 'c5',
+            title: 'Sertifikat Kompetensi IT & Web Development',
+            issuer: 'Penyelenggara Pelatihan IT',
+            date: '2025',
+            imageUrl: '/sosial/Sertifikat 5.jpeg',
+        },
+        {
+            id: 'c6',
+            title: 'Sertifikat Seminar & Workshop Teknologi',
+            issuer: 'Penyelenggara Seminar IT',
+            date: '2025',
+            imageUrl: '/sosial/sertifikat 6.jpeg',
         },
     ],
 

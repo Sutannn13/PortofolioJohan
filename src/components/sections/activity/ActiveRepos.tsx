@@ -10,13 +10,13 @@ interface ActiveReposProps {
 const SkeletonGrid: React.FC = () => (
   <div className="grid gap-4 sm:grid-cols-2">
     {[...Array(6)].map((_, i) => (
-      <div key={i} className="rounded-2xl border border-white/10 bg-white/[0.04] p-5 animate-pulse">
-        <div className="h-5 w-2/3 rounded bg-white/10 mb-3" />
-        <div className="h-3 w-full rounded bg-white/5 mb-2" />
-        <div className="h-3 w-1/2 rounded bg-white/5 mb-4" />
+      <div key={i} className="rounded-md border border-[#333333] bg-[#0a0a0a] p-5 animate-pulse">
+        <div className="h-5 w-2/3 rounded bg-[#1a1a1a] mb-3" />
+        <div className="h-3 w-full rounded bg-[#1a1a1a] mb-2" />
+        <div className="h-3 w-1/2 rounded bg-[#1a1a1a] mb-4" />
         <div className="flex gap-4">
-          <div className="h-4 w-16 rounded bg-white/5" />
-          <div className="h-4 w-12 rounded bg-white/5" />
+          <div className="h-4 w-16 rounded bg-[#1a1a1a]" />
+          <div className="h-4 w-12 rounded bg-[#1a1a1a]" />
         </div>
       </div>
     ))}
@@ -31,8 +31,8 @@ const ActiveRepos: React.FC<ActiveReposProps> = ({ repos, loading }) => {
     <section className="relative z-10 px-4 sm:px-6 mb-12 sm:mb-16">
       <div className="mx-auto max-w-4xl">
         <div className="flex items-center gap-3 mb-6">
-          <div className="w-2 h-2 rounded-full bg-accent animate-pulse" />
-          <h2 className="font-display text-lg font-semibold text-text-primary">
+          <div className="w-2 h-2 bg-white" />
+          <h2 className="font-display text-lg font-semibold text-white">
             Active Repositories
           </h2>
         </div>
@@ -40,8 +40,8 @@ const ActiveRepos: React.FC<ActiveReposProps> = ({ repos, loading }) => {
         {loading ? (
           <SkeletonGrid />
         ) : displayRepos.length === 0 ? (
-          <div className="rounded-2xl border border-white/10 bg-white/[0.04] backdrop-blur-xl p-8 text-center">
-            <p className="text-text-muted">No additional repositories to display</p>
+          <div className="rounded-md border border-[#333333] bg-[#0a0a0a] p-8 text-center">
+            <p className="text-[#888888]">No additional repositories to display</p>
           </div>
         ) : (
           <div className="grid gap-4 sm:grid-cols-2">
@@ -54,22 +54,22 @@ const ActiveRepos: React.FC<ActiveReposProps> = ({ repos, loading }) => {
                   href={repo.html_url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group rounded-2xl border border-white/10 bg-white/[0.04] backdrop-blur-xl p-5 transition-all duration-300 hover:border-accent/20 hover:bg-accent/5 hover:scale-[1.01] block"
+                  className="group rounded-md border border-[#333333] bg-[#0a0a0a] p-5 transition-colors hover:border-[#666666] block"
                 >
                   {/* Repo Name */}
                   <div className="flex items-center gap-2 mb-2">
-                    <h3 className="font-display font-semibold text-sm text-text-primary group-hover:text-accent transition-colors truncate">
+                    <h3 className="font-display font-semibold text-sm text-white group-hover:text-[#0070f3] transition-colors truncate">
                       {repo.name}
                     </h3>
                     <ExternalLink
                       size={12}
-                      className="text-text-muted opacity-0 group-hover:opacity-100 transition-opacity shrink-0"
+                      className="text-[#888888] opacity-0 group-hover:opacity-100 transition-opacity shrink-0"
                     />
                   </div>
 
                   {/* Description */}
                   {repo.description && (
-                    <p className="text-xs text-text-secondary line-clamp-2 mb-4">
+                    <p className="text-xs text-[#a1a1a1] line-clamp-2 mb-4">
                       {repo.description}
                     </p>
                   )}
@@ -82,22 +82,22 @@ const ActiveRepos: React.FC<ActiveReposProps> = ({ repos, loading }) => {
                           className="w-2.5 h-2.5 rounded-full"
                           style={{ backgroundColor: langColor }}
                         />
-                        <span className="text-xs text-text-muted">{repo.language}</span>
+                        <span className="text-xs text-[#888888] font-mono">{repo.language}</span>
                       </div>
                     )}
                     {repo.stargazers_count > 0 && (
-                      <div className="flex items-center gap-1 text-text-muted">
+                      <div className="flex items-center gap-1 text-[#888888] font-mono">
                         <Star size={12} />
                         <span className="text-xs">{repo.stargazers_count}</span>
                       </div>
                     )}
                     {repo.forks_count > 0 && (
-                      <div className="flex items-center gap-1 text-text-muted">
+                      <div className="flex items-center gap-1 text-[#888888] font-mono">
                         <GitFork size={12} />
                         <span className="text-xs">{repo.forks_count}</span>
                       </div>
                     )}
-                    <span className="text-[11px] text-text-muted ml-auto">
+                    <span className="text-[11px] text-[#888888] font-mono ml-auto">
                       {timeAgo(repo.pushed_at)}
                     </span>
                   </div>

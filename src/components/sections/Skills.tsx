@@ -18,6 +18,9 @@ const techItems = [
     { image: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nodejs/nodejs-original.svg', text: 'Node.js' },
     { image: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mysql/mysql-original.svg', text: 'MySQL' },
     { image: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original.svg', text: 'Git' },
+    { image: 'https://cdn.simpleicons.org/chatgpt/ffffff', text: 'Prompt Engineering' },
+    { image: 'https://cdn.simpleicons.org/langchain/ffffff', text: 'AI Agents' },
+    { image: 'https://cdn.simpleicons.org/githubcopilot/ffffff', text: 'AI-Assisted Dev' },
 ];
 
 const Skills: React.FC = () => {
@@ -50,6 +53,7 @@ const Skills: React.FC = () => {
                     bend={1}
                     textColor="#ffffff"
                     borderRadius={0.06}
+                    font="bold 38px system-ui, -apple-system, sans-serif"
                     scrollSpeed={2}
                     scrollEase={0.05}
                 />

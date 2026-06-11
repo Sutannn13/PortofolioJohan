@@ -36,6 +36,7 @@ export type SkillCategory =
     | 'networking'
     | 'tools'
     | 'database'
+    | 'ai'
     | 'other';
 
 export interface Project {

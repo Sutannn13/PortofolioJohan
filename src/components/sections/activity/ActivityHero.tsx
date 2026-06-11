@@ -8,12 +8,11 @@ const ActivityHero: React.FC = () => {
     <section className="relative z-10 pt-28 pb-12 sm:pt-36 sm:pb-16 px-4 sm:px-6">
       <div className="mx-auto max-w-4xl text-center">
         {/* Status Badge */}
-        <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-accent/30 bg-accent/10 backdrop-blur-sm px-4 py-1.5">
+        <div className="mb-6 inline-flex items-center gap-2 rounded-md border border-[#333333] bg-[#0a0a0a] px-3 py-1">
           <span className="relative flex h-2 w-2">
-            <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75" />
-            <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-400" />
+            <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-500" />
           </span>
-          <span className="text-xs font-mono tracking-wider text-accent">
+          <span className="text-xs font-mono text-[#888888]">
             CURRENTLY BUILDING
           </span>
         </div>
@@ -21,7 +20,7 @@ const ActivityHero: React.FC = () => {
         {/* Title */}
         <SplitText
           text="Live Developer Activity"
-          className="font-display text-3xl font-bold text-text-primary sm:text-4xl md:text-5xl lg:text-6xl"
+          className="font-display text-4xl font-bold text-white tracking-tight sm:text-5xl md:text-6xl lg:text-7xl"
           tag="h1"
           delay={30}
           duration={0.8}
@@ -31,25 +30,25 @@ const ActivityHero: React.FC = () => {
         />
 
         {/* Subtitle */}
-        <p className="mt-4 sm:mt-6 text-text-secondary text-sm sm:text-base md:text-lg max-w-2xl mx-auto leading-relaxed">
+        <p className="mt-6 text-[#888888] text-base sm:text-lg md:text-xl max-w-2xl mx-auto leading-relaxed">
           A semi-realtime view of what I'm currently building, committing,
           and exploring on GitHub.
         </p>
 
         {/* CTA Buttons */}
-        <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-3">
+        <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
           <a
             href={`https://github.com/${GITHUB_USERNAME}`}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 rounded-xl bg-accent/20 border border-accent/30 backdrop-blur-sm px-6 py-3 text-sm font-medium text-accent transition-all duration-300 hover:bg-accent/30 hover:scale-[1.02]"
+            className="inline-flex items-center justify-center gap-2 rounded-full bg-white text-black px-6 py-3 text-sm font-medium transition-colors hover:bg-[#e0e0e0]"
           >
             <Github size={16} />
             View GitHub Profile
           </a>
           <Link
             to="/"
-            className="inline-flex items-center gap-2 rounded-xl border border-white/10 bg-white/5 backdrop-blur-sm px-6 py-3 text-sm font-medium text-text-secondary transition-all duration-300 hover:bg-white/10 hover:text-text-primary hover:scale-[1.02]"
+            className="inline-flex items-center justify-center gap-2 rounded-full border border-[#333333] bg-[#0a0a0a] px-6 py-3 text-sm font-medium text-white transition-colors hover:bg-[#1a1a1a]"
           >
             <ArrowLeft size={16} />
             Back to Portfolio
@@ -57,8 +56,8 @@ const ActivityHero: React.FC = () => {
         </div>
 
         {/* Pulse Line */}
-        <div className="mt-12 flex items-center justify-center gap-2 text-text-muted text-xs">
-          <Zap size={12} className="text-accent" />
+        <div className="mt-16 flex items-center justify-center gap-2 text-[#888888] text-xs font-mono">
+          <Zap size={14} className="text-[#888888]" />
           <span>Data updates every ~5 minutes from GitHub Public API</span>
         </div>
       </div>
