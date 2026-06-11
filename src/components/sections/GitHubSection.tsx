@@ -5,6 +5,7 @@ import { GitHubCalendar } from 'react-github-calendar';
 import { Star, GitFork, Users, BookOpen } from 'lucide-react';
 import SplitText from '@/components/reactbits/SplitText';
 import CardSwap, { Card } from '@/components/reactbits/CardSwap';
+import GitHubSnakeGame from './activity/GitHubSnakeGame';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -375,32 +376,8 @@ const GitHubSection: React.FC = () => {
               My Contribution Graph
             </h3>
           </div>
-          <div className="overflow-x-auto pb-2 -mx-1 px-1">
-            <div className="min-w-[600px] sm:min-w-0">
-              <picture>
-                <source
-                  media="(prefers-color-scheme: dark)"
-                  srcSet={`https://raw.githubusercontent.com/${GITHUB_USERNAME}/${GITHUB_USERNAME}/output/github-contribution-grid-snake-dark.svg`}
-                />
-                <source
-                  media="(prefers-color-scheme: light)"
-                  srcSet={`https://raw.githubusercontent.com/${GITHUB_USERNAME}/${GITHUB_USERNAME}/output/github-contribution-grid-snake.svg`}
-                />
-                <img
-                  alt="GitHub contribution grid snake animation"
-                  src={`https://raw.githubusercontent.com/${GITHUB_USERNAME}/${GITHUB_USERNAME}/output/github-contribution-grid-snake-dark.svg`}
-                  className="w-full h-auto"
-                  loading="lazy"
-                  onError={(e) => {
-                    e.currentTarget.style.display = 'none';
-                    const parent = e.currentTarget.closest('.overflow-x-auto');
-                    if (parent) {
-                      parent.innerHTML = '<p class="text-text-muted text-sm p-4 text-center">Snake animation unavailable</p>';
-                    }
-                  }}
-                />
-              </picture>
-            </div>
+          <div className="overflow-hidden rounded-xl bg-[#0d0d1a] border border-white/5 p-4 sm:p-6">
+             <GitHubSnakeGame />
           </div>
         </div>
 

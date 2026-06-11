@@ -212,31 +212,6 @@ const portfolioData: PortfolioData = {
             projectType: 'Dummy Project',
             status: 'Prototype',
         },
-        {
-            id: 'p6',
-            title: 'SALI App (Sadar dan Lindungi)',
-            description:
-                'A gamified mobile application designed to educate early childhood users on preventing child sexual abuse (CSA). Co-developed and officially registered for Intellectual Property Rights (HKI).',
-            longDescription: `
-                <div class="space-y-4">
-                    <h4 class="text-xl font-semibold text-white">Latar Belakang & Riset</h4>
-                    <p>Kasus pelecehan seksual terhadap anak usia dini menjadi perhatian serius yang membutuhkan pendekatan edukasi proaktif dan ramah anak. <strong>SALI (Sadar dan Lindungi)</strong> dikembangkan sebagai solusi preventif dalam bentuk aplikasi mobile berbasis gamifikasi yang dirancang khusus untuk interaksi anak usia dini.</p>
-                    <h4 class="text-xl font-semibold text-white mt-6">Pengembangan & Evaluasi</h4>
-                    <p>Aplikasi ini tidak hanya sekadar dibangun, namun melewati proses riset akademik dan pengujian UX yang komprehensif. Pengujian dilakukan melalui metode <em>User Acceptance Testing (UAT)</em> dengan melibatkan guru PAUD dan orang tua murid sebagai validator utama kelayakan aplikasi.</p>
-                    <ul class="list-disc pl-5 space-y-2 mt-2">
-                        <li><strong>Gamification UI/UX:</strong> Desain antarmuka dan pengalaman pengguna yang disesuaikan untuk kognitif anak usia dini.</li>
-                        <li><strong>Modul Edukasi Interaktif:</strong> Konten pembelajaran yang disusun bersama pakar pendidikan.</li>
-                        <li><strong>Validasi Akademik:</strong> Hasil riset dan evaluasi aplikasi telah diterbitkan dalam bentuk jurnal akademik di Jurnal Ilmu Pengetahuan dan Teknologi Komputer (JITK).</li>
-                    </ul>
-                    <h4 class="text-xl font-semibold text-white mt-6">Dampak & Hak Cipta</h4>
-                    <p>Sebagai bentuk perlindungan dan pengakuan inovasi, aplikasi SALI telah didaftarkan secara resmi dan mendapatkan <strong>Sertifikat Hak Kekayaan Intelektual (HKI)</strong> dari Direktorat Jenderal Kekayaan Intelektual (DJKI) Kementerian Hukum dan HAM RI.</p>
-                </div>
-            `,
-            techStack: ['Mobile App', 'Gamification', 'UX Research'],
-            featured: true,
-            category: 'Mobile Application',
-            projectType: 'Research',
-        },
     ],
 
     experiences: [
@@ -263,13 +238,13 @@ const portfolioData: PortfolioData = {
             startDate: 'Sept 2025',
             endDate: 'Jan 2026',
             description:
-                'Co-developed SALI (Sadar dan Lindungi), a gamified mobile application for educating early childhood about preventing child sexual abuse (CSA). Contributed to academic publication on UX evaluation and facilitated community-based Digital Marketing training.',
+                'Co-developed a gamified mobile application for educating early childhood about preventing child sexual abuse (CSA). Contributed to academic publication on UX evaluation and facilitated community-based Digital Marketing training.',
             highlights: [
-                'Co-developed SALI — a gamified mobile education app for child sexual abuse (CSA) prevention targeting early childhood users.',
+                'Co-developed a gamified mobile education app for child sexual abuse (CSA) prevention targeting early childhood users.',
                 'Conducted User Acceptance Testing (UAT) by collecting qualitative feedback from teachers and parents for application feasibility analysis.',
                 'Co-authored a research paper published in Jurnal Ilmu Pengetahuan dan Teknologi Komputer (JITK) on user experience evaluation of educational applications.',
                 'Facilitated community-based Digital Marketing training to help participants develop visual content creation skills.',
-                'Registered as inventor/copyright holder under Direktorat Jenderal Kekayaan Intelektual (HKI Indonesia) for the SALI application.',
+                'Registered as inventor/copyright holder under Direktorat Jenderal Kekayaan Intelektual (HKI Indonesia) for the developed application.',
             ],
         },
         {
