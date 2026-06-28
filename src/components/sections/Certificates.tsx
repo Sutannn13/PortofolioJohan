@@ -1,7 +1,7 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, lazy, Suspense } from 'react';
 import SplitText from '@/components/reactbits/SplitText';
 import Folder from '@/components/reactbits/Folder';
-import CertificatesPage from './CertificatesPage';
+const CertificatesPage = lazy(() => import('./CertificatesPage'));
 import type { Certificate } from '@/types';
 
 interface CertificatesProps {
@@ -85,10 +85,12 @@ const Certificates: React.FC<CertificatesProps> = ({ certificates }) => {
 
             {/* Separate full-screen Certificates Page */}
             {isPageOpen && (
-                <CertificatesPage
-                    certificates={certificates}
-                    onClose={() => setIsPageOpen(false)}
-                />
+                <Suspense fallback={<div className="fixed inset-0 z-[9999] bg-[#060010]" />}>
+                    <CertificatesPage
+                        certificates={certificates}
+                        onClose={() => setIsPageOpen(false)}
+                    />
+                </Suspense>
             )}
         </>
     );

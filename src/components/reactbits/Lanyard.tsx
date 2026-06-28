@@ -1,6 +1,6 @@
 /* eslint-disable react/no-unknown-property */
 'use client';
-import { useEffect, useRef, useState, useMemo } from 'react';
+import { Suspense, useEffect, useRef, useState, useMemo } from 'react';
 import { Canvas, extend, useFrame } from '@react-three/fiber';
 import { useGLTF, useTexture, Environment, Lightformer } from '@react-three/drei';
 import {
@@ -68,6 +68,9 @@ export default function Lanyard({
                     gl.setClearColor(new THREE.Color(0x000000), transparent ? 0 : 1)
                 }
             >
+                {/* Inner Suspense is required: useGLTF/useTexture + rapier <Physics> WASM all suspend.
+                    Without it, an outer Suspense (e.g. React.lazy) catches them and unmounts the Canvas. */}
+                <Suspense fallback={null}>
                 <ambientLight intensity={Math.PI} />
                 <Physics gravity={gravity} timeStep={isMobile ? 1 / 30 : 1 / 60}>
                     <Band isMobile={isMobile} />
@@ -102,6 +105,7 @@ export default function Lanyard({
                         scale={[100, 10, 1]}
                     />
                 </Environment>
+                </Suspense>
             </Canvas>
         </div>
     );

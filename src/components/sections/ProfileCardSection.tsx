@@ -2,7 +2,7 @@ import React from 'react';
 import ProfileCard from '@/components/reactbits/ProfileCard';
 import ScrollVelocity from '@/components/reactbits/ScrollVelocity';
 import type { PersonalInfo } from '@/types';
-import aboutMeImg from '@sosial/sutan_transparan.png';
+import aboutMeImg from '@sosial/sutan_transparan.webp';
 
 interface ProfileCardSectionProps {
     personal: PersonalInfo;

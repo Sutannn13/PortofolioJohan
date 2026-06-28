@@ -6,7 +6,7 @@ import type { PortfolioData } from '../src/types';
 // ─────────────────────────────────────────────
 
 import profileImage from './porto profil.jpeg';
-import hmtiImage from './hmti.png';
+import hmtiImage from './hmti.webp';
 import tokoListrikImage from './Toko listrik arip.jpeg';
 import skillPathAiImage from './Skill Path AI.jpeg';
 

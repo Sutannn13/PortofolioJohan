@@ -1,9 +1,9 @@
-import { useRef, useEffect, useState } from 'react';
+import { useRef, useEffect, useState, lazy, Suspense } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import RotatingText from '@/components/reactbits/RotatingText';
 import ScrollReveal from '@/components/ui/ScrollReveal';
-import Lanyard from '@/components/reactbits/Lanyard';
+const Lanyard = lazy(() => import('@/components/reactbits/Lanyard'));
 import type { PersonalInfo } from '@/types';
 
 gsap.registerPlugin(ScrollTrigger);
@@ -69,7 +69,9 @@ const About: React.FC<AboutProps> = ({ personal }) => {
                     {/* Profile Lanyard */}
                     <div ref={imageRef} className="flex items-center justify-center mx-auto opacity-0 h-[380px] sm:h-[450px] md:h-[500px] w-full relative">
                         {lanyardDropped && (
-                            <Lanyard position={[-0.5, -1, 15]} gravity={[0, -40, 0]} transparent={true} />
+                            <Suspense fallback={null}>
+                                <Lanyard position={[-0.5, -1, 15]} gravity={[0, -40, 0]} transparent={true} />
+                            </Suspense>
                         )}
                     </div>
 

@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, lazy, Suspense } from 'react';
 import { Routes, Route, useNavigate, Link } from 'react-router-dom';
 import type { ContactMessage } from '@/types';
 import { supabase } from '@/lib/supabase';
@@ -17,7 +17,7 @@ import GitHubSection from '@/components/sections/GitHubSection';
 import LiveActivityBanner from '@/components/sections/LiveActivityBanner';
 
 import CountUp from '@/components/reactbits/CountUp';
-import ActivityPage from '@/pages/ActivityPage';
+const ActivityPage = lazy(() => import('@/pages/ActivityPage'));
 // ─────────────────────────────────────────────
 // Data import from the isolated `sosial` folder
 // ─────────────────────────────────────────────
@@ -240,7 +240,7 @@ function App() {
   return (
     <Routes>
       <Route path="/" element={<HomePage />} />
-      <Route path="/activity" element={<ActivityPage />} />
+      <Route path="/activity" element={<Suspense fallback={<div className="min-h-screen bg-[#060010]" />}><ActivityPage /></Suspense>} />
       <Route path="*" element={<NotFound />} />
     </Routes>
   );
