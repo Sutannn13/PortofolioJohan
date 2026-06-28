@@ -5,6 +5,7 @@ import { gsap } from 'gsap';
 import TextPressure from '@/components/reactbits/TextPressure';
 import DecryptedText from '@/components/reactbits/DecryptedText';
 import Shuffle from '@/components/reactbits/Shuffle';
+import TextType from '@/components/reactbits/TextType';
 import type { PersonalInfo } from '@/types';
 
 interface HeroProps {
@@ -111,13 +112,14 @@ const Hero: React.FC<HeroProps> = ({ personal }) => {
 
                 {/* Tagline */}
                 <div ref={taglineRef} className="mb-6 w-full text-lg text-text-secondary sm:text-xl md:text-2xl opacity-0">
-                    <DecryptedText
+                    <TextType
                         text={personal.tagline}
-                        speed={100}
-                        maxIterations={15}
-                        animateOn="view"
-                        revealDirection="center"
-                        sequential={false}
+                        typingSpeed={50}
+                        pauseDuration={2000}
+                        deletingSpeed={30}
+                        loop={true}
+                        showCursor
+                        cursorCharacter="_"
                     />
                 </div>
 
@@ -165,9 +167,9 @@ const Hero: React.FC<HeroProps> = ({ personal }) => {
                         />
                     </a>
                     <a
-                        href="/sosial/CV Sutan Arlie Baru.pdf"
+                        href="/sosial/CV Sutan Arlie Johan.pdf"
                         id="cta-download-cv"
-                        download="CV Sutan Arlie.pdf"
+                        download="CV Sutan Arlie Johan.pdf"
                         className="group inline-flex items-center gap-2 rounded-full border border-border px-7 py-3 text-sm font-semibold text-text-secondary transition-all duration-300 hover:border-accent/40 hover:text-text-primary"
                     >
                         <Download
