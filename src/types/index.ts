@@ -76,6 +76,17 @@ export interface Certificate {
 }
 
 
+export interface Publication {
+    id: string;
+    title: string;
+    authors: string;
+    venue: string;       // journal/conference name
+    details?: string;    // e.g. "Vol. 11, No. 3, pp. 661–668"
+    year: string;
+    indexing?: string;   // e.g. "SINTA 2"
+    doi?: string;        // full DOI URL
+}
+
 export interface NavItem {
     id: string;
     label: string;
@@ -89,6 +100,7 @@ export interface PortfolioData {
     projects: Project[];
     experiences: Experience[];
     certificates: Certificate[];
+    publications?: Publication[];
     navigation: NavItem[];
 }
 

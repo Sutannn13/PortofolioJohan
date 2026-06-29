@@ -463,7 +463,7 @@ const ProfileCardComponent: React.FC<ProfileCardProps> = ({
                     style={{
                         height: '100%',
                         minHeight: '320px',
-                        maxHeight: 'min(80vh, 540px)',
+                        maxHeight: 'min(75vh, 480px)',
                         maxWidth: '387px',
                         aspectRatio: '0.718',
                         borderRadius: cardRadius,
@@ -574,7 +574,7 @@ const ProfileCardComponent: React.FC<ProfileCardProps> = ({
                                         </div>
                                     </div>
                                     <button
-                                        className="border border-white/10 rounded-lg px-3 py-2 sm:px-4 sm:py-3 text-[10px] sm:text-xs font-semibold text-white/90 cursor-pointer backdrop-blur-[10px] transition-all duration-200 ease-out hover:border-white/40 hover:-translate-y-px"
+                                        className="border border-white/10 rounded-lg px-4 py-2.5 min-h-[44px] sm:px-4 sm:py-3 text-[10px] sm:text-xs font-semibold text-white/90 cursor-pointer backdrop-blur-[10px] transition-all duration-200 ease-out hover:border-white/40 hover:-translate-y-px"
                                         onClick={handleContactClick}
                                         style={{ pointerEvents: 'auto', display: 'block', gridArea: 'auto', borderRadius: '8px' }}
                                         type="button"

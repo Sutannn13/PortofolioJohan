@@ -67,7 +67,7 @@ const About: React.FC<AboutProps> = ({ personal }) => {
             <div className="mx-auto max-w-6xl rounded-[1.5rem] sm:rounded-[2rem] border border-white/10 bg-white/[0.04] p-6 sm:p-8 backdrop-blur-xl shadow-2xl md:p-12 lg:p-16">
                 <div className="grid items-center gap-10 md:gap-16 md:grid-cols-2">
                     {/* Profile Lanyard */}
-                    <div ref={imageRef} className="flex items-center justify-center mx-auto opacity-0 h-[380px] sm:h-[450px] md:h-[500px] w-full relative">
+                    <div ref={imageRef} className="flex items-center justify-center mx-auto opacity-0 h-[300px] sm:h-[420px] md:h-[500px] w-full relative">
                         {lanyardDropped && (
                             <Suspense fallback={null}>
                                 <Lanyard position={[-0.5, -1, 15]} gravity={[0, -40, 0]} transparent={true} />
@@ -77,11 +77,11 @@ const About: React.FC<AboutProps> = ({ personal }) => {
 
                     {/* Content */}
                     <div ref={contentRef} className="opacity-0">
-                        <h2 className="font-display mb-6 text-3xl font-bold sm:text-4xl text-text-primary flex items-center flex-wrap gap-2">
+                        <h2 className="font-display mb-6 text-xl font-bold sm:text-2xl md:text-3xl lg:text-4xl text-text-primary flex items-center flex-wrap gap-2">
                             About
                             <RotatingText
                                 texts={['Me', 'Sutan', 'Arlie', 'Johan']}
-                                mainClassName="px-2 sm:px-2 md:px-3 bg-transparent text-white border border-white/30 overflow-hidden py-0.5 sm:py-1 md:py-2 justify-center rounded-lg"
+                                mainClassName="px-1.5 sm:px-2 md:px-3 bg-transparent text-white border border-white/30 overflow-hidden py-0.5 sm:py-1 md:py-2 justify-center rounded-lg"
                                 staggerFrom="last"
                                 initial={{ y: "100%" }}
                                 animate={{ y: 0 }}
@@ -105,12 +105,12 @@ const About: React.FC<AboutProps> = ({ personal }) => {
                             {personal.bio}
                         </ScrollReveal>
 
-                        <div className="flex flex-wrap gap-3">
-                            {['Laravel', 'PHP', 'MySQL', 'REST API', 'Git'].map(
+                        <div className="flex flex-wrap gap-2 sm:gap-3">
+                            {['Laravel', 'PHP', 'MySQL', 'REST API', 'Laravel Reverb', 'Midtrans', 'Git'].map(
                                 (tag) => (
                                     <span
                                         key={tag}
-                                        className="rounded-full border border-border bg-bg-card px-3 py-1 font-mono text-xs text-text-muted transition-colors duration-300 hover:border-accent/30 hover:text-accent"
+                                        className="rounded-full border border-border bg-bg-card px-3 py-1 font-mono text-[10px] sm:text-xs text-text-muted transition-colors duration-300 hover:border-accent/30 hover:text-accent"
                                     >
                                         {tag}
                                     </span>

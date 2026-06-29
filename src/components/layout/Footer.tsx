@@ -38,7 +38,7 @@ const Footer: React.FC<FooterProps> = () => {
         >
             <div className="mx-auto flex max-w-6xl flex-col items-center gap-4 sm:gap-6 px-4 sm:px-6 text-center">
                 {/* Social Links Dock */}
-                <div className="flex h-[80px] w-full items-center justify-center relative">
+                <div className="flex min-h-[80px] h-auto sm:h-[80px] w-full items-center justify-center relative">
                     <Dock
                         items={dockItems}
                         panelHeight={60}

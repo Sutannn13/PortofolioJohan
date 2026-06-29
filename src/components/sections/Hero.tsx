@@ -94,7 +94,7 @@ const Hero: React.FC<HeroProps> = ({ personal }) => {
                 </div>
 
                 {/* Headline with TextPressure */}
-                <h1 className="relative mb-4 w-full min-h-[60px] h-[80px] sm:h-[130px] md:h-[180px] lg:h-[220px] flex items-center justify-center">
+                <h1 className="relative mb-4 w-full min-h-[80px] sm:h-[130px] md:h-[180px] lg:h-[220px] flex items-center justify-center">
                     <span className="sr-only">{personal.name} - {personal.title}</span>
                     <TextPressure
                         text="SUTAN A.J."
@@ -106,7 +106,7 @@ const Hero: React.FC<HeroProps> = ({ personal }) => {
                         italic
                         textColor="#f3f1f1"
                         strokeColor="#8b5cf6"
-                        minFontSize={24}
+                        minFontSize={16}
                     />
                 </h1>
 
@@ -158,7 +158,7 @@ const Hero: React.FC<HeroProps> = ({ personal }) => {
                                 .getElementById('projects')
                                 ?.scrollIntoView({ behavior: 'smooth' });
                         }}
-                        className="group inline-flex items-center gap-2 rounded-full bg-accent px-7 py-3 text-sm font-semibold text-white shadow-lg shadow-accent/20 transition-all duration-300 hover:bg-accent-dark hover:shadow-xl hover:shadow-accent/30"
+                        className="group inline-flex items-center gap-2 rounded-full bg-accent px-4 py-2.5 sm:px-7 sm:py-3 text-sm font-semibold text-white shadow-lg shadow-accent/20 transition-all duration-300 hover:bg-accent-dark hover:shadow-xl hover:shadow-accent/30"
                     >
                         View My Work
                         <ArrowDown
@@ -170,7 +170,7 @@ const Hero: React.FC<HeroProps> = ({ personal }) => {
                         href="/sosial/CV Sutan Arlie Johan.pdf"
                         id="cta-download-cv"
                         download="CV Sutan Arlie Johan.pdf"
-                        className="group inline-flex items-center gap-2 rounded-full border border-border px-7 py-3 text-sm font-semibold text-text-secondary transition-all duration-300 hover:border-accent/40 hover:text-text-primary"
+                        className="group inline-flex items-center gap-2 rounded-full border border-border px-4 py-2.5 sm:px-7 sm:py-3 text-sm font-semibold text-text-secondary transition-all duration-300 hover:border-accent/40 hover:text-text-primary"
                     >
                         <Download
                             size={16}
@@ -184,7 +184,7 @@ const Hero: React.FC<HeroProps> = ({ personal }) => {
             {/* Scroll Indicator */}
             <div
                 ref={scrollRef}
-                className="absolute bottom-10 left-1/2 -translate-x-1/2 opacity-0"
+                className="absolute bottom-6 sm:bottom-10 left-1/2 -translate-x-1/2 opacity-0"
             >
                 <div className="flex flex-col items-center gap-2">
                     <span className="font-mono text-[10px] tracking-[0.3em] text-text-muted">

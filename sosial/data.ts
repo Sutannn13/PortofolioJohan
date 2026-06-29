@@ -20,7 +20,7 @@ const portfolioData: PortfolioData = {
         bio: `Information Technology student (semester 6) at UBSI Depok, currently interning as a Full-Stack Engineer at Connextion Tech. I build REST APIs with Laravel, design relational databases with MySQL & Supabase, and ship tested, documented code. My work includes a HKI-certified smart waste management app (Trash Point, Juara 2 UBSI Jabar) and multiple real-client e-commerce platforms. I also hold MTCNA and Cisco networking certifications, and I am a published academic contributor in JITK.`,
         shortBio: 'Developer. Engineer. Creator.',
         email: 'sutanarliejohan@gmail.com',
-        location: 'Bogor, Indonesia',
+        location: 'Depok, Indonesia',
         availableForWork: true,
         profileImage,
     },
@@ -103,7 +103,7 @@ const portfolioData: PortfolioData = {
             id: 'p4',
             title: 'Website Toko Listrik Arip',
             description:
-                'E-commerce platform for an electrical supply store featuring a product catalog, shopping cart, checkout flow, admin dashboard, and full transaction management.',
+                'E-commerce platform for an electrical supply store with multi-role authentication (Admin/User), product CRUD, shopping cart, checkout flow, and an LLM-based AI Assistant that helps customers find the right products.',
             longDescription: `
                 <div class="space-y-4">
                     <h4 class="text-xl font-semibold text-white">Latar Belakang</h4>
@@ -111,16 +111,17 @@ const portfolioData: PortfolioData = {
                     <h4 class="text-xl font-semibold text-white mt-6">Arsitektur & Fitur Utama</h4>
                     <p>Dibangun menggunakan <strong>Laravel</strong> dengan arsitektur MVC yang solid. Blade templating digunakan di sisi frontend untuk rendering tampilan yang dinamis dan responsif. Sistem ini mencakup seluruh alur e-commerce dari browsing produk hingga manajemen pesanan.</p>
                     <ul class="list-disc pl-5 space-y-2 mt-2">
+                        <li><strong>Autentikasi Multi-Role:</strong> Pemisahan akses Admin dan User dengan hak akses yang terstruktur untuk menjaga keamanan operasional toko.</li>
+                        <li><strong>AI Asisten (LLM):</strong> Asisten belanja berbasis Large Language Model yang membantu pelanggan menemukan produk listrik yang tepat sesuai kebutuhan melalui percakapan natural.</li>
                         <li><strong>Katalog Produk Digital:</strong> Menampilkan berbagai kategori perlengkapan listrik — kabel, saklar, lampu, MCB, dan komponen lainnya — dengan detail harga dan ketersediaan stok.</li>
                         <li><strong>Keranjang Belanja & Checkout:</strong> Sistem cart yang persisten dengan alur checkout yang ramah pengguna dan mendukung pembayaran manual.</li>
-                        <li><strong>Dashboard Admin:</strong> Panel administrasi lengkap untuk mengelola produk, memantau pesanan masuk, dan mengatur status transaksi secara real-time.</li>
-                        <li><strong>Manajemen Transaksi:</strong> Pencatatan dan pelacakan seluruh transaksi dari pemesanan hingga penyelesaian pembayaran.</li>
+                        <li><strong>Dashboard Admin:</strong> Panel administrasi lengkap untuk mengelola produk (CRUD), memantau pesanan masuk, dan mengatur status transaksi secara real-time.</li>
                     </ul>
                     <h4 class="text-xl font-semibold text-white mt-6">Potensi Pengembangan</h4>
-                    <p>Project ini termasuk <strong>Real Project</strong> yang bisa dikembangkan lebih lanjut dengan integrasi payment gateway, tracking order, invoice otomatis, dan laporan penjualan untuk mendukung pertumbuhan bisnis toko listrik secara digital.</p>
+                    <p>Project ini termasuk <strong>Real Project</strong> yang sedang disiapkan untuk migrasi dari pembayaran manual ke <strong>payment gateway otomatis</strong>, dilengkapi tracking order, invoice otomatis, dan laporan penjualan untuk mendukung pertumbuhan bisnis toko listrik secara digital.</p>
                 </div>
             `,
-            techStack: ['Laravel', 'PHP', 'Blade', 'JavaScript', 'CSS'],
+            techStack: ['Laravel', 'PHP', 'Blade', 'Tailwind CSS', 'Alpine.js', 'JavaScript'],
             imageUrl: tokoListrikImage,
             repoUrl: 'https://github.com/Sutannn13/toko-listrik-arip',
             featured: true,
@@ -132,7 +133,7 @@ const portfolioData: PortfolioData = {
             id: 'p2',
             title: 'E-Commerce Platform for Fresh Fish Transactions',
             description:
-                'E-commerce platform specifically for fresh fish transactions, complete with product management, a shopping cart system, payment gateway integration, and an admin dashboard to monitor sales in real-time.',
+                'E-commerce platform for fresh fish transactions, complete with real-time buyer-seller chat, Midtrans payment integration, automated PDF reporting, low-stock alerts, and an admin dashboard to monitor sales in real-time.',
             longDescription: `
                 <div class="space-y-4">
                     <h4 class="text-xl font-semibold text-white">Tinjauan Proyek</h4>
@@ -140,15 +141,17 @@ const portfolioData: PortfolioData = {
                     <h4 class="text-xl font-semibold text-white mt-6">Arsitektur & Pengembangan</h4>
                     <p>Secara teknis, platform ini dibangun menggunakan <strong>Laravel & PHP</strong> sebagai fondasi *backend* yang melayani manajemen pengelolaan produk, stok inventaris, serta autentikasi berbasis *role* (pengguna vs admin). UI/UX di sisi publik dan area dashboard diformulasikan dengan <strong>Tailwind CSS</strong> agar sepenuhnya responsif pada segala ukuran perangkat seluler dan desktop.</p>
                     <ul class="list-disc pl-5 space-y-2 mt-2">
-                        <li><strong>Modul Manajemen Inventaris:</strong> Monitoring level stok Ikan Nila & Ikan Mas Premium secara akurat.</li>
-                        <li><strong>Gateway Pembayaran:</strong> Integrasi API transaksi digital guna memberikan kemudahan belanja dan tingkat keamanan yang sesuai standar industri.</li>
+                        <li><strong>Modul Manajemen Inventaris:</strong> Monitoring level stok Ikan Nila & Ikan Mas Premium secara akurat, dilengkapi <strong>low-stock alerts</strong> otomatis saat persediaan menipis.</li>
+                        <li><strong>Real-time Chat:</strong> Komunikasi langsung antara pembeli dan penjual untuk negosiasi dan konfirmasi pesanan tanpa keluar dari platform.</li>
+                        <li><strong>Gateway Pembayaran (Midtrans):</strong> Integrasi <strong>Midtrans</strong> untuk transaksi digital yang aman sesuai standar industri.</li>
+                        <li><strong>Laporan PDF Otomatis:</strong> Pembuatan laporan transaksi dan penjualan dalam format PDF secara otomatis untuk kebutuhan administrasi dan rekapitulasi.</li>
                         <li><strong>Admin Dashboard:</strong> Visualisasi grafik data untuk analitik pesanan dan pantauan pendapatan secara real-time.</li>
                     </ul>
                     <h4 class="text-xl font-semibold text-white mt-6">Hasil Akhir</h4>
                     <p>Aplikasi ini sukses mendemonstrasikan sistem tata kelola bisnis berbasis *Full-Stack* yang solid dengan arsitektur database relasional (MySQL) dengan pengelolaan *state* keranjang belanja yang persisten dan alur *checkout* transaksi yang ramah pengguna.</p>
                 </div>
             `,
-            techStack: ['Laravel', 'PHP', 'MySQL', 'Tailwind CSS', 'JavaScript'],
+            techStack: ['Laravel', 'PHP', 'MySQL', 'Tailwind CSS', 'Midtrans', 'JavaScript'],
             imageUrl: '/sosial/fish market.png',
             repoUrl: 'https://github.com/Sutannn13/E-commerce-platform-for-fresh-fish-transactions.git',
             featured: true,
@@ -160,7 +163,7 @@ const portfolioData: PortfolioData = {
             id: 'p3',
             title: 'Website HMTI BSI Margonda',
             description:
-                'Official website for the Information Technology Student Association (HMTI) at UBSI Margonda campus — a digital platform for event information, announcements, and organization profiles.',
+                'Official website for the Information Technology Student Association (HMTI) at UBSI Margonda campus — featuring member management, transparent treasury (Kas/Finance) with automated reporting, and real-time internal broadcasting powered by Laravel Reverb.',
             longDescription: `
                 <div class="space-y-4">
                     <h4 class="text-xl font-semibold text-white">Tentang Proyek</h4>
@@ -168,15 +171,17 @@ const portfolioData: PortfolioData = {
                     <h4 class="text-xl font-semibold text-white mt-6">Fitur & Arsitektur</h4>
                     <p>Dibangun menggunakan <strong>Laravel</strong> dengan arsitektur MVC yang terstruktur rapi. Blade templating digunakan di sisi frontend untuk rendering tampilan yang dinamis dan responsif di berbagai perangkat.</p>
                     <ul class="list-disc pl-5 space-y-2 mt-2">
-                        <li><strong>Halaman Profil Organisasi:</strong> Menampilkan visi-misi, struktur kepengurusan, dan identitas HMTI secara profesional.</li>
-                        <li><strong>Manajemen Konten Dinamis:</strong> Sistem backend untuk mengelola berita, agenda kegiatan, dan pengumuman secara real-time.</li>
+                        <li><strong>Manajemen Anggota:</strong> Sistem pendataan dan pengelolaan anggota organisasi secara terpusat dan terstruktur.</li>
+                        <li><strong>Kas & Keuangan Transparan:</strong> Modul pengelolaan kas organisasi dengan pelaporan otomatis sehingga arus keuangan dapat dipantau secara transparan oleh pengurus.</li>
+                        <li><strong>Broadcasting Real-time (Laravel Reverb):</strong> Pengumuman dan notifikasi internal disampaikan secara real-time menggunakan <strong>Laravel Reverb</strong> (WebSocket) tanpa perlu refresh halaman.</li>
+                        <li><strong>Manajemen Konten Dinamis:</strong> Sistem backend untuk mengelola berita, agenda kegiatan, dan pengumuman secara dinamis.</li>
                         <li><strong>Desain Responsif:</strong> Tampilan optimal di semua ukuran layar menggunakan Tailwind CSS dan Vite sebagai build tool modern.</li>
                     </ul>
                     <h4 class="text-xl font-semibold text-white mt-6">Konteks Pengembangan</h4>
                     <p>Proyek ini merupakan kontribusi nyata dalam ekosistem kampus UBSI, mendukung digitalisasi kegiatan kemahasiswaan dan memperkuat identitas digital HMTI di tingkat universitas.</p>
                 </div>
             `,
-            techStack: ['Laravel', 'PHP', 'Blade', 'MySQL', 'Tailwind CSS', 'Vite'],
+            techStack: ['Laravel', 'PHP', 'Blade', 'MySQL', 'Tailwind CSS', 'Laravel Reverb', 'Vite'],
             imageUrl: hmtiImage,
             repoUrl: 'https://github.com/Sutannn13/HMTI-Margonda.git',
             featured: true,
@@ -218,9 +223,9 @@ const portfolioData: PortfolioData = {
         {
             id: 'e0',
             role: 'Full-Stack Engineer Intern',
-            company: 'Connextion & Let\'s AFK',
+            company: 'Connextion Tech — AFK Project',
             location: 'Indonesia (Remote)',
-            startDate: 'Mar 2026',
+            startDate: 'Feb 2026',
             endDate: 'Present',
             description:
                 'Currently entrusted by the founder to pivot and lead the end-to-end development of an internal participant database management system for Let\'s AFK (by Connextion), a rapidly growing offline community in Jakarta.',
@@ -253,8 +258,8 @@ const portfolioData: PortfolioData = {
             role: 'Project Manager & Lead Developer',
             company: 'IT Bootcamp — Universitas Bina Sarana Informatika',
             location: 'Depok, Indonesia',
-            startDate: 'Jul 2025',
-            endDate: 'Aug 2025',
+            startDate: 'Jun 2025',
+            endDate: 'Jul 2025',
             description:
                 'Led a 9-person team in a fullstack web development bootcamp, building "Trash Point" — a web-based education and waste management app.',
             highlights: [
@@ -312,6 +317,20 @@ const portfolioData: PortfolioData = {
         },
     ],
 
+    publications: [
+        {
+            id: 'pub1',
+            title:
+                'Evaluation of the Effectiveness and User Experience of the SALI Education Application Using UEQ',
+            authors: 'Irnawati, O., Solecha, K., Arifin, Y.T., & Johan, S.A.',
+            venue: 'JITK (Jurnal Ilmu Pengetahuan dan Teknologi Komputer)',
+            details: 'Vol. 11, No. 3, pp. 661–668',
+            year: '2026',
+            indexing: 'SINTA 2',
+            doi: 'https://doi.org/10.33480/jitk.v11i3.7489',
+        },
+    ],
+
     navigation: [
         { id: 'nav-home', label: 'Home', href: '#home' },
         { id: 'nav-about', label: 'About', href: '#about' },
@@ -319,6 +338,7 @@ const portfolioData: PortfolioData = {
         { id: 'nav-projects', label: 'Projects', href: '#projects' },
         { id: 'nav-skills', label: 'Skills', href: '#skills' },
         { id: 'nav-certificates', label: 'Certificates', href: '#certificates' },
+        { id: 'nav-publications', label: 'Publications', href: '#publications' },
         { id: 'nav-github', label: 'GitHub', href: '#github' },
         { id: 'nav-contact', label: 'Contact', href: '#contact' },
     ],

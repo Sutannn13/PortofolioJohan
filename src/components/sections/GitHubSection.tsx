@@ -290,7 +290,7 @@ const GitHubSection: React.FC = () => {
           ref={statsRef}
           className="opacity-0 mb-10 xl:mb-14 flex justify-center w-full px-2 sm:px-0"
         >
-          <div className="w-full max-w-[280px] sm:max-w-sm md:max-w-md" style={{ height: '320px', position: 'relative' }}>
+          <div className="w-full max-w-[280px] sm:max-w-sm md:max-w-md h-[280px] sm:h-[320px]" style={{ position: 'relative' }}>
             <CardSwap
               cardDistance={40}
               verticalDistance={30}
@@ -311,8 +311,7 @@ const GitHubSection: React.FC = () => {
                   src={`https://github-readme-streak-stats.herokuapp.com/?user=${GITHUB_USERNAME}&theme=tokyonight&background=0d0d1a&border=8b5cf6&stroke=8b5cf6&ring=a78bfa&fire=a78bfa&currStreakNum=f0f0f5&sideNums=f0f0f5&currStreakLabel=8b5cf6&sideLabels=8b5cf6&dates=9898a6`}
                   alt="GitHub Streak"
                   loading="lazy"
-                  className="w-full h-auto object-contain rounded-lg"
-                  style={{ minHeight: '120px' }}
+                  className="w-full h-auto object-contain rounded-lg min-h-[80px] sm:min-h-[120px]"
                   onError={(e) => {
                     e.currentTarget.style.display = 'none';
                     if (e.currentTarget.parentElement) {
@@ -344,7 +343,7 @@ const GitHubSection: React.FC = () => {
               Contribution Activity
             </h3>
           </div>
-          <div className="overflow-x-auto pb-2 -mx-1 px-1">
+          <div className="overflow-x-auto pb-2 -mx-4 px-4 sm:mx-0 sm:px-0">
             <div className="min-w-[680px] sm:min-w-0">
               <GitHubCalendar
                 username={GITHUB_USERNAME}

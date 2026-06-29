@@ -72,7 +72,7 @@ const Certificates: React.FC<CertificatesProps> = ({ certificates }) => {
                     </div>
 
                     {/* Interactive Folder Animation */}
-                    <div className="relative mt-8 mx-auto flex h-[250px] sm:h-[350px] w-full max-w-sm items-center justify-center md:h-[450px]">
+                    <div className="relative mt-8 mx-auto flex h-[180px] sm:h-[250px] w-full max-w-sm items-center justify-center md:h-[450px]">
                         <Folder
                             size={isMobile ? 1.0 : 2.5}
                             color="#5227FF"

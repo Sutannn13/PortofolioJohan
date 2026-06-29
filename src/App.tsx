@@ -11,6 +11,7 @@ import About from '@/components/sections/About';
 import Projects from '@/components/sections/Projects';
 import Skills from '@/components/sections/Skills';
 import Certificates from '@/components/sections/Certificates';
+import Publications from '@/components/sections/Publications';
 import Contact from '@/components/sections/Contact';
 import Experience from '@/components/sections/Experience';
 import GitHubSection from '@/components/sections/GitHubSection';
@@ -25,7 +26,7 @@ import portfolioData from '../sosial/data';
 
 // ── Homepage Component ────────────────────────────────────────────────────────
 function HomePage() {
-  const { personal, projects, certificates, experiences, navigation } = portfolioData;
+  const { personal, projects, certificates, publications, experiences, navigation } = portfolioData;
   const navigate = useNavigate();
   const [showIntro, setShowIntro] = useState(true);
   const [introFading, setIntroFading] = useState(false);
@@ -70,8 +71,8 @@ function HomePage() {
       return;
     }
 
-    const fadeTimer = window.setTimeout(() => setIntroFading(true), 10500);
-    const hideTimer = window.setTimeout(() => setShowIntro(false), 11500);
+    const fadeTimer = window.setTimeout(() => setIntroFading(true), 5000);
+    const hideTimer = window.setTimeout(() => setShowIntro(false), 6000);
 
     return () => {
       window.clearTimeout(fadeTimer);
@@ -131,7 +132,7 @@ function HomePage() {
           </div>
 
           {/* Content */}
-          <div className="relative z-10 flex flex-col items-center justify-center px-6">
+          <div className="relative z-10 flex flex-col items-center justify-center px-3 sm:px-6">
             {/* Counter 0–100% */}
             <div className="flex items-baseline justify-center">
               <CountUp
@@ -139,16 +140,16 @@ function HomePage() {
                 to={100}
                 separator=","
                 direction="up"
-                duration={10}
+                duration={4.5}
                 delay={0}
-                className="font-display text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-bold leading-tight elegant-shimmer-text"
+                className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-tight elegant-shimmer-text"
               />
-              <span className="font-display text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-bold leading-tight elegant-shimmer-text ml-2">%</span>
+              <span className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-tight elegant-shimmer-text ml-2">%</span>
             </div>
 
             {/* GitHub logo bouncing over username */}
             <div className="mt-10 loading-username-text">
-              <div className="flex items-center justify-center font-mono text-lg sm:text-xl md:text-2xl font-bold tracking-wider select-none">
+              <div className="flex items-center justify-center font-mono text-base sm:text-xl md:text-2xl font-bold tracking-wider select-none">
                 
                 {/* Bouncing GitHub logo Wrapper (Takes up physical space to center properly) */}
                 <div className="relative w-7 h-7 sm:w-8 sm:h-8 md:w-9 md:h-9 mr-3 flex items-center justify-center elegant-shimmer-svg">
@@ -206,6 +207,7 @@ function HomePage() {
         <Projects projects={projects} />
         <Skills />
         <Certificates certificates={certificates} />
+        {publications && <Publications publications={publications} />}
         <GitHubSection />
         <LiveActivityBanner />
         <Contact personal={personal} />

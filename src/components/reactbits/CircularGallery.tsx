@@ -385,7 +385,7 @@ class Media {
                 this.plane.program.uniforms.uViewportSizes.value = [this.viewport.width, this.viewport.height];
             }
         }
-        this.scale = (this.screen.height / 1500);
+        this.scale = Math.max(0.3, Math.min(1.2, this.screen.height / 1500));
         // Modified to 500x500 to render proportionally as small square cards (like TiltedCard)
         this.plane.scale.y = (this.viewport.height * (500 * this.scale)) / this.screen.height;
         this.plane.scale.x = (this.viewport.width * (500 * this.scale)) / this.screen.width;

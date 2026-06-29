@@ -10,7 +10,7 @@ interface ProfileCardSectionProps {
 
 const ProfileCardSection: React.FC<ProfileCardSectionProps> = ({ personal }) => {
     return (
-        <section id="profile" className="relative z-10 w-full min-h-[80vh] flex justify-center items-center px-4 sm:px-6 py-12 sm:py-20 overflow-hidden">
+        <section id="profile" className="relative z-10 w-full min-h-[60vh] sm:min-h-[70vh] md:min-h-[80vh] flex justify-center items-center px-4 sm:px-6 py-12 sm:py-20 overflow-hidden">
             {/* Animated Background Text */}
             <div className="absolute inset-0 flex flex-col justify-center pointer-events-none opacity-[0.07] z-0">
                 <ScrollVelocity
@@ -20,7 +20,7 @@ const ProfileCardSection: React.FC<ProfileCardSectionProps> = ({ personal }) => 
                 />
             </div>
 
-            <div className="w-[85%] max-w-[240px] sm:max-w-[320px] md:max-w-sm relative z-10 flex justify-center mx-auto">
+            <div className="w-[90%] max-w-[280px] sm:max-w-[320px] md:max-w-sm relative z-10 flex justify-center mx-auto">
                 <ProfileCard
                     name={personal.name}
                     title={personal.title}

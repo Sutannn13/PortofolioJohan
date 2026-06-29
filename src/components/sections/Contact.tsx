@@ -228,7 +228,7 @@ const Contact: React.FC<ContactProps> = ({ personal }) => {
                                     <PreviewLinkCard href={homeMapsUrl} followCursor="x">
                                         <PreviewLinkCardTrigger
                                             target="_blank"
-                                            className="line-clamp-3 max-w-[24rem] text-sm leading-relaxed text-text-primary underline decoration-dotted underline-offset-4 transition-colors hover:text-accent"
+                                            className="line-clamp-3 max-w-[16rem] sm:max-w-[24rem] break-words text-sm leading-relaxed text-text-primary underline decoration-dotted underline-offset-4 transition-colors hover:text-accent"
                                         >
                                             {homeAddress}
                                         </PreviewLinkCardTrigger>
@@ -333,7 +333,7 @@ const Contact: React.FC<ContactProps> = ({ personal }) => {
                                     }
                                 />
 
-                                <AlertDialogPopup from="bottom" className="sm:max-w-[460px] border-cyan-200/20">
+                                <AlertDialogPopup from="bottom" className="max-w-[90vw] sm:max-w-[460px] border-cyan-200/20">
                                     <AlertDialogHeader>
                                         <div className="mb-1 inline-flex h-10 w-10 items-center justify-center rounded-xl border border-cyan-300/30 bg-cyan-300/10 text-cyan-200">
                                             <TriangleAlert size={18} />

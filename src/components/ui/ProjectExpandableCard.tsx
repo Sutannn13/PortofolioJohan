@@ -75,7 +75,7 @@ export function ProjectExpandableCard({
         {active && (
           <div
             className={cn(
-              "fixed inset-0 z-[1001] flex items-center justify-center sm:p-4 md:p-10 pointer-events-none"
+              "fixed inset-0 z-[1001] flex items-center justify-center p-2 sm:p-4 md:p-10 pointer-events-none"
             )}
           >
             <motion.div
@@ -92,14 +92,14 @@ export function ProjectExpandableCard({
                     <img
                       src={project.imageUrl}
                       alt={project.title}
-                      className="h-64 sm:h-[400px] w-full object-cover object-top"
+                      className="h-40 sm:h-64 md:h-[400px] w-full object-cover object-top"
                     />
                     <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-bg-card to-transparent pointer-events-none" />
                   </>
                 )}
                 <motion.button
                   aria-label="Close card"
-                  className="absolute right-4 top-4 sm:right-6 sm:top-6 flex h-10 w-10 items-center justify-center rounded-full bg-black/50 backdrop-blur-md border border-white/10 text-white/70 hover:bg-black/80 hover:text-white transition-all z-50"
+                  className="absolute right-2 top-2 sm:right-6 sm:top-6 flex h-12 w-12 sm:h-10 sm:w-10 items-center justify-center rounded-full bg-black/50 backdrop-blur-md border border-white/10 text-white/70 hover:bg-black/80 hover:text-white transition-all z-50"
                   onClick={() => setActive(false)}
                 >
                   <X size={20} />
@@ -107,7 +107,7 @@ export function ProjectExpandableCard({
               </motion.div>
 
               {/* Content Section in Modal */}
-              <div className="flex flex-col flex-1 overflow-y-auto bg-bg-card p-6 sm:p-10 overscroll-contain">
+              <div className="flex flex-col flex-1 overflow-y-auto bg-bg-card p-3 sm:p-6 md:p-10 overscroll-contain">
                 <div className="flex flex-col mb-8">
                   <motion.span
                     layoutId={`category-${project.id}-${id}`}
@@ -235,7 +235,7 @@ export function ProjectExpandableCard({
 
           <motion.p
             layoutId={`description-${project.id}-${id}`}
-            className="mb-5 flex-1 text-sm leading-relaxed text-text-secondary line-clamp-3"
+            className="mb-5 flex-1 text-sm leading-relaxed text-text-secondary line-clamp-2 sm:line-clamp-3"
           >
             {project.description}
           </motion.p>

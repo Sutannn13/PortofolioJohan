@@ -47,13 +47,13 @@ const Skills: React.FC = () => {
             </div>
 
             {/* CircularGallery as a 1 row tech bar */}
-            <div className="mx-auto mt-4" style={{ height: '350px', position: 'relative', maxWidth: '1200px' }}>
+            <div className="mx-auto mt-4 h-[250px] sm:h-[300px] md:h-[350px] relative max-w-[1200px]">
                 <CircularGallery
                     items={techItems}
                     bend={1}
                     textColor="#ffffff"
                     borderRadius={0.06}
-                    font="bold 38px system-ui, -apple-system, sans-serif"
+                    font={`bold ${typeof window !== 'undefined' && window.innerWidth < 640 ? 20 : 38}px system-ui, -apple-system, sans-serif`}
                     scrollSpeed={2}
                     scrollEase={0.05}
                 />

@@ -41,14 +41,14 @@ const ActivityHero: React.FC = () => {
             href={`https://github.com/${GITHUB_USERNAME}`}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center justify-center gap-2 rounded-full bg-white text-black px-6 py-3 text-sm font-medium transition-colors hover:bg-[#e0e0e0]"
+            className="inline-flex items-center justify-center gap-2 rounded-full bg-white text-black px-4 sm:px-6 py-2.5 sm:py-3 text-xs sm:text-sm font-medium transition-colors hover:bg-[#e0e0e0]"
           >
             <Github size={16} />
             View GitHub Profile
           </a>
           <Link
             to="/"
-            className="inline-flex items-center justify-center gap-2 rounded-full border border-[#333333] bg-[#0a0a0a] px-6 py-3 text-sm font-medium text-white transition-colors hover:bg-[#1a1a1a]"
+            className="inline-flex items-center justify-center gap-2 rounded-full border border-[#333333] bg-[#0a0a0a] px-4 sm:px-6 py-2.5 sm:py-3 text-xs sm:text-sm font-medium text-white transition-colors hover:bg-[#1a1a1a]"
           >
             <ArrowLeft size={16} />
             Back to Portfolio

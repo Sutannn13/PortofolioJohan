@@ -158,7 +158,7 @@ const CertificatesPage: React.FC<CertificatesPageProps> = ({ certificates, onClo
                             animateBy="words"
                             direction="top"
                             stepDuration={0.4}
-                            className="justify-center font-display text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-tight text-cyan-100 drop-shadow-[0_0_24px_rgba(34,211,238,0.35)]"
+                            className="justify-center font-display text-2xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-tight text-cyan-100 drop-shadow-[0_0_24px_rgba(34,211,238,0.35)]"
                         />
                     </div>
                 </div>
@@ -222,12 +222,12 @@ const CertificatesPage: React.FC<CertificatesPageProps> = ({ certificates, onClo
                                     onClick={() => setActive(cert)}
                                     className="p-4 flex flex-row justify-between items-center hover:bg-neutral-800 rounded-xl cursor-pointer"
                                 >
-                                    <div className="flex gap-3 md:gap-4 flex-row items-center w-full">
+                                    <div className="flex gap-2 sm:gap-3 md:gap-4 flex-row items-center w-full">
                                         <motion.div layoutId={`image-${cert.title}-${id}`} className="shrink-0">
                                             <img
                                                 src={cert.imageUrl}
                                                 alt={cert.title}
-                                                className="h-12 w-12 md:h-14 md:w-14 rounded-lg object-cover object-top"
+                                                className="h-10 w-10 sm:h-12 sm:w-12 md:h-14 md:w-14 rounded-lg object-cover object-top"
                                             />
                                         </motion.div>
                                         <div className="flex flex-col">
@@ -288,13 +288,13 @@ const CertificatesPage: React.FC<CertificatesPageProps> = ({ certificates, onClo
                         <motion.div
                             layoutId={`card-${activeCard.title}-${id}`}
                             ref={ref}
-                            className="w-full max-w-[500px] h-auto md:h-fit max-h-[90vh] flex flex-col bg-neutral-900 rounded-2xl sm:rounded-3xl overflow-hidden shadow-2xl"
+                            className="w-full max-w-[95vw] sm:max-w-[500px] h-auto md:h-fit max-h-[90vh] flex flex-col bg-neutral-900 rounded-2xl sm:rounded-3xl overflow-hidden shadow-2xl"
                         >
                             <motion.div layoutId={`image-${activeCard.title}-${id}`}>
                                 <img
                                     src={activeCard.imageUrl}
                                     alt={activeCard.title}
-                                    className="w-full h-56 sm:h-80 object-cover object-top"
+                                    className="w-full h-40 sm:h-56 md:h-80 object-cover object-top"
                                 />
                             </motion.div>
 
