@@ -1,11 +1,10 @@
 import React, { useEffect, useState, useId, useRef } from 'react';
 import { createPortal } from 'react-dom';
-import { AnimatePresence, motion } from "motion/react";
+import { AnimatePresence, motion, useReducedMotion } from "motion/react";
 import { useOutsideClick } from "@/hooks/use-outside-click";
 import Shuffle from '@/components/reactbits/Shuffle';
 import Beams from '@/components/reactbits/Beams';
 import PillNav from '@/components/reactbits/PillNav';
-import BlurText from '@/components/reactbits/BlurText';
 import type { Certificate } from '@/types';
 
 interface CertificatesPageProps {
@@ -44,22 +43,17 @@ export const CloseIcon = () => {
 };
 
 const CertificatesPage: React.FC<CertificatesPageProps> = ({ certificates, onClose }) => {
-    const [showIntro, setShowIntro] = useState(true);
-    const [introFading, setIntroFading] = useState(false);
+    const reduce = useReducedMotion();
 
-    useEffect(() => {
-        if (!showIntro) {
-            return;
-        }
-
-        const fadeTimer = window.setTimeout(() => setIntroFading(true), 2300);
-        const hideTimer = window.setTimeout(() => setShowIntro(false), 3000);
-
-        return () => {
-            window.clearTimeout(fadeTimer);
-            window.clearTimeout(hideTimer);
-        };
-    }, [showIntro]);
+    // Non-blocking entrance — content + beams establish, then cards cascade in.
+    const listVariants = {
+        hidden: {},
+        show: { transition: { delayChildren: 0.15, staggerChildren: 0.08 } },
+    };
+    const cardVariants = {
+        hidden: { opacity: 0, y: reduce ? 0 : 18 },
+        show: { opacity: 1, y: 0, transition: { duration: 0.5, ease: 'easeOut' } },
+    };
 
     // Aceternity UI Expansion state
     const [active, setActive] = useState<Certificate | boolean | null>(null);
@@ -140,32 +134,13 @@ const CertificatesPage: React.FC<CertificatesPageProps> = ({ certificates, onClo
 
     return createPortal(
         <>
-            {/* ── Intro Loading Screen ── */}
-            {showIntro && (
-                <div
-                    className={`fixed inset-0 z-[9999] flex items-center justify-center bg-[#050010] transition-all duration-1000 ease-in-out ${introFading ? 'opacity-0 pointer-events-none' : 'opacity-100'
-                        }`}
+            <div className="fixed inset-0 z-[100] overflow-y-auto overflow-x-hidden bg-[#050010]">
+                <motion.div
+                    className="min-h-full"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ duration: 0.6, ease: 'easeOut' }}
                 >
-                    <div className="pointer-events-none absolute inset-0 overflow-hidden">
-                        <div className="absolute left-1/2 top-1/3 h-72 w-72 -translate-x-1/2 rounded-full bg-cyan-400/20 blur-[120px]" />
-                        <div className="absolute right-[10%] bottom-1/4 h-64 w-64 rounded-full bg-blue-500/15 blur-[120px]" />
-                    </div>
-
-                    <div className="relative z-10 px-6 text-center">
-                        <BlurText
-                            text="Welcome to Johan Portofolio"
-                            delay={470}
-                            animateBy="words"
-                            direction="top"
-                            stepDuration={0.4}
-                            className="justify-center font-display text-2xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-tight text-cyan-100 drop-shadow-[0_0_24px_rgba(34,211,238,0.35)]"
-                        />
-                    </div>
-                </div>
-            )}
-
-            <div className={`fixed inset-0 z-[100] overflow-y-auto overflow-x-hidden bg-[#050010] transition-opacity duration-1000`}>
-                <div className={`min-h-full transition-opacity duration-1000 ${showIntro ? 'opacity-0' : 'opacity-100'}`}>
                     {/* ── Beams Background ── */}
                     <div className="fixed inset-0 z-0 opacity-40">
                         <Beams
@@ -192,7 +167,12 @@ const CertificatesPage: React.FC<CertificatesPageProps> = ({ certificates, onClo
 
                     {/* Content Container */}
                     <div className="relative z-10 mx-auto max-w-7xl px-4 md:px-6 py-12 md:py-20 lg:py-24">
-                        <div className="mb-12 text-center sm:mb-16 md:mb-20 flex flex-col items-center gap-4">
+                        <motion.div
+                            className="mb-12 text-center sm:mb-16 md:mb-20 flex flex-col items-center gap-4"
+                            initial={{ opacity: 0, y: reduce ? 0 : -12 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.6, ease: 'easeOut' }}
+                        >
                             <span className="text-[#B19EEF] font-mono text-xs uppercase tracking-[0.25em]">
                                 My Certificates
                             </span>
@@ -211,12 +191,18 @@ const CertificatesPage: React.FC<CertificatesPageProps> = ({ certificates, onClo
                                 triggerOnHover
                                 respectReducedMotion={true}
                             />
-                        </div>
+                        </motion.div>
 
                         {/* NEW ACETERNITY UI Expandable Cards List Layout */}
-                        <ul className="max-w-2xl mx-auto w-full gap-4 flex flex-col">
+                        <motion.ul
+                            className="max-w-2xl mx-auto w-full gap-4 flex flex-col"
+                            variants={listVariants}
+                            initial="hidden"
+                            animate="show"
+                        >
                             {certificates.map((cert) => (
                                 <motion.div
+                                    variants={cardVariants}
                                     layoutId={`card-${cert.title}-${id}`}
                                     key={`card-${cert.title}-${id}`}
                                     onClick={() => setActive(cert)}
@@ -253,9 +239,9 @@ const CertificatesPage: React.FC<CertificatesPageProps> = ({ certificates, onClo
                                     </motion.button>
                                 </motion.div>
                             ))}
-                        </ul>
+                        </motion.ul>
                     </div>
-                </div>
+                </motion.div>
             </div>
 
             {/* EXPANDABLE OVERLAY */}

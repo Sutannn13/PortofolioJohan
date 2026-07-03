@@ -11,7 +11,7 @@ const CACHE_TTL = 5 * 60 * 1000; // 5 minutes
 
 export interface GitHubUserProfile {
   login: string;
-  name: string | null;
+  name: string | null; 
   avatar_url: string;
   html_url: string;
   bio: string | null;
