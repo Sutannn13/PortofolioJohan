@@ -1,6 +1,7 @@
 import React, { useEffect, useState, useId, useRef } from 'react';
 import { createPortal } from 'react-dom';
 import { AnimatePresence, motion, useReducedMotion } from "motion/react";
+import type { Variants } from "motion/react";
 import { useOutsideClick } from "@/hooks/use-outside-click";
 import Shuffle from '@/components/reactbits/Shuffle';
 import Beams from '@/components/reactbits/Beams';
@@ -46,11 +47,11 @@ const CertificatesPage: React.FC<CertificatesPageProps> = ({ certificates, onClo
     const reduce = useReducedMotion();
 
     // Non-blocking entrance — content + beams establish, then cards cascade in.
-    const listVariants = {
+    const listVariants: Variants = {
         hidden: {},
         show: { transition: { delayChildren: 0.15, staggerChildren: 0.08 } },
     };
-    const cardVariants = {
+    const cardVariants: Variants = {
         hidden: { opacity: 0, y: reduce ? 0 : 18 },
         show: { opacity: 1, y: 0, transition: { duration: 0.5, ease: 'easeOut' } },
     };
